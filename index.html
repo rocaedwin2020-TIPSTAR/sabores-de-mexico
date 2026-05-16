@@ -530,13 +530,16 @@ footer{text-align:center;padding:18px;font-size:.73rem;color:var(--cm);border-to
 <div id="sec-recetas" class="sec on">
  <h2 class="stit">Cocina Mexicana Auténtica</h2>
  <p class="ssub">100+ recetas reales · Ingredientes escalables · Paso a paso</p>
- <div id="installBanner" style="background:linear-gradient(135deg,#1565C0,#0D47A1);border-radius:12px;padding:12px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;cursor:pointer;" onclick="instalarApp()">
-  <div style="font-size:2rem;flex-shrink:0;">📲</div>
-  <div style="flex:1;">
-   <div style="color:#fff;font-weight:900;font-size:.88rem;">Instalar App en tu celular</div>
-   <div style="color:rgba(255,255,255,.7);font-size:.72rem;margin-top:2px;">Ábrela sin internet · Sin App Store · Gratis</div>
+ <div id="installBanner" style="background:linear-gradient(135deg,#1565C0,#0D47A1);border-radius:12px;padding:12px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;position:relative;">
+  <div onclick="instalarApp()" style="display:flex;align-items:center;gap:12px;flex:1;cursor:pointer;">
+   <div style="font-size:2rem;flex-shrink:0;">📲</div>
+   <div style="flex:1;">
+    <div style="color:#fff;font-weight:900;font-size:.88rem;">Instalar App en tu celular</div>
+    <div style="color:rgba(255,255,255,.7);font-size:.72rem;margin-top:2px;">Ábrela sin internet · Sin App Store · Gratis</div>
+   </div>
+   <div style="background:var(--o);color:var(--c);padding:7px 14px;border-radius:50px;font-weight:900;font-size:.78rem;white-space:nowrap;">Instalar →</div>
   </div>
-  <div style="background:var(--o);color:var(--c);padding:7px 14px;border-radius:50px;font-weight:900;font-size:.78rem;white-space:nowrap;">Instalar →</div>
+  <button onclick="ocultarBanner()" style="position:absolute;top:6px;right:8px;background:rgba(255,255,255,.2);border:none;border-radius:50%;width:22px;height:22px;color:#fff;font-size:.8rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>
  </div>
  <div class="ad-banner" id="adTop">
   <span class="ad-tag">ANUNCIO</span>
@@ -1689,10 +1692,17 @@ document.getElementById('cpres').addEventListener('keydown',function(e){if(e.key
 document.getElementById('rinp').addEventListener('keydown',function(e){if(e.key==='Enter')addRez();});
 renderNegIngs();
 
-// ── HIDE INSTALL BANNER IF ALREADY INSTALLED ──
+// ── HIDE INSTALL BANNER IF ALREADY INSTALLED OR DISMISSED ──
+function ocultarBanner(){
+ var b=document.getElementById('installBanner');
+ if(b)b.style.display='none';
+ try{localStorage.setItem('sdm_banner_dismissed','1');}catch(e){}
+}
 (function(){
  var isStandalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone;
- if(isStandalone){
+ var dismissed=false;
+ try{dismissed=localStorage.getItem('sdm_banner_dismissed')==='1';}catch(e){}
+ if(isStandalone||dismissed){
   var b=document.getElementById('installBanner');
   if(b)b.style.display='none';
  }
@@ -1734,8 +1744,7 @@ function instalarApp(){
   deferredPrompt.userChoice.then(function(r){
    if(r.outcome==='accepted'){
     showToast('✅ ¡Instalando! Busca el ícono en tu pantalla de inicio');
-    var b=document.getElementById('installBanner');
-    if(b)b.style.display='none';
+    ocultarBanner();
    }
    deferredPrompt=null;
   });
