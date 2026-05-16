@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabores de México</title>
+<meta name="description" content="100+ recetas mexicanas auténticas. Cocina rico, gasta menos, no desperdicies.">
+<meta name="theme-color" content="#C0392B">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sabores MX">
+<link rel="manifest" href="/manifest.json">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7768233251491035" crossorigin="anonymous"></script>
+<style>
+:root{
+  --r:#C0392B;--rd:#7B241C;--rcl:#FADBD8;
+  --v:#1B7A3E;--vd:#145A32;--vcl:#D5F5E3;
+  --o:#D4AC0D;--ocl:#FEF9E7;
+  --c:#3E1F0A;--cm:#7A4520;--ccl:#EFEBE9;
+  --az:#1565C0;--azcl:#E3F2FD;
+  --mor:#6A1B9A;--morcl:#F3E5F5;
+  --des:#D35400;
+  --sal:#8B0000;--salcl:#FFE4E4;
+  --agua:#0077B6;--aguacl:#CAF0F8;
+  --bg:#FAF5EE;--w:#FFFFFF;--g:#F0EBE1;--g2:#E8E0D5;
+  --sh:0 6px 28px rgba(62,31,10,.12);
+  --shh:0 18px 56px rgba(62,31,10,.22);
+  --rad:16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--c);overflow-x:hidden;min-height:100vh;}
+
+/* AUTH */
+#auth{position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px;
+  background:linear-gradient(145deg,#3E1F0A 0%,#7B241C 50%,#D4AC0D 100%);}
+#auth.gone{display:none;}
+#auth::before{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:24px 24px;}
+.auth-card{background:var(--w);border-radius:24px;padding:36px 30px;max-width:400px;width:100%;
+  box-shadow:0 40px 80px rgba(0,0,0,.4);position:relative;animation:up .4s ease;}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.auth-brand{text-align:center;margin-bottom:22px;}
+.auth-brand h1{font-family:'Fraunces',serif;font-size:1.9rem;color:var(--rd);font-style:italic;}
+.auth-brand h1 span{color:var(--o);}
+.auth-brand p{color:var(--cm);font-size:.82rem;margin-top:3px;}
+.auth-seg{display:flex;background:var(--g);border-radius:10px;padding:3px;margin-bottom:18px;}
+.aseg{flex:1;padding:8px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;
+  font-weight:700;font-size:.83rem;cursor:pointer;background:transparent;color:var(--cm);transition:all .2s;}
+.aseg.on{background:var(--r);color:#fff;box-shadow:0 2px 8px rgba(192,57,43,.3);}
+.aform{display:flex;flex-direction:column;gap:10px;}
+.aform.hide{display:none;}
+.aerr{background:var(--rcl);color:var(--rd);padding:8px 12px;border-radius:8px;font-size:.8rem;font-weight:700;display:none;}
+.ainp{padding:11px 14px;border-radius:10px;border:2px solid var(--g);font-family:'DM Sans',sans-serif;
+  font-size:.9rem;font-weight:500;color:var(--c);background:var(--bg);transition:border-color .2s;}
+.ainp:focus{outline:none;border-color:var(--r);}
+.abtn{padding:13px;background:var(--r);color:#fff;border:none;border-radius:10px;
+  font-family:'DM Sans',sans-serif;font-weight:800;font-size:.92rem;cursor:pointer;
+  transition:all .2s;box-shadow:0 4px 14px rgba(192,57,43,.3);}
+.abtn:hover{background:var(--rd);transform:translateY(-1px);}
+.adiv{text-align:center;color:var(--cm);font-size:.75rem;font-weight:600;}
+.ademo{padding:10px;background:var(--vcl);color:var(--vd);border:2px solid rgba(27,122,62,.2);
+  border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:800;font-size:.82rem;cursor:pointer;transition:all .2s;}
+.ademo:hover{background:var(--v);color:#fff;}
+.plan-note{text-align:center;font-size:.72rem;color:var(--cm);line-height:1.5;}
+.plan-note strong{color:var(--r);}
+
+/* BANNER ANUNCIO */
+.ad-banner{background:linear-gradient(135deg,#fff9e6,#fff3cc);border:1.5px solid rgba(212,172,13,.3);
+  border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px;
+  margin:10px 0;font-size:.78rem;color:var(--cm);position:relative;}
+.ad-banner.hide{display:none;}
+.ad-tag{background:var(--o);color:#fff;padding:1px 6px;border-radius:4px;font-size:.6rem;font-weight:900;letter-spacing:.5px;flex-shrink:0;}
+.ad-txt{flex:1;font-weight:600;}
+.ad-cta{padding:4px 10px;background:var(--r);color:#fff;border:none;border-radius:6px;font-size:.72rem;font-weight:800;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;}
+.ad-close{position:absolute;top:4px;right:6px;background:none;border:none;color:var(--cm);font-size:.75rem;cursor:pointer;opacity:.5;}
+.ad-big{background:linear-gradient(135deg,#f0f8ff,#e8f4fd);border:1.5px solid rgba(21,101,192,.2);
+  border-radius:12px;padding:16px;text-align:center;margin:18px 0;}
+.ad-big.hide{display:none;}
+.ad-big .ad-tag{display:inline-block;margin-bottom:8px;}
+.ad-big p{font-size:.85rem;color:var(--cm);font-weight:600;margin-bottom:8px;}
+.ad-big button{padding:7px 16px;background:var(--az);color:#fff;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:800;font-size:.8rem;cursor:pointer;}
+.pro-sticky{position:fixed;bottom:0;left:0;right:0;z-index:300;
+  background:linear-gradient(135deg,var(--rd),var(--r));padding:10px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  box-shadow:0 -4px 20px rgba(62,31,10,.25);}
+.pro-sticky.hide{display:none;}
+.pro-sticky p{color:#fff;font-size:.82rem;font-weight:700;}
+.pro-sticky p span{color:var(--o);}
+.pro-sticky button{padding:8px 16px;background:var(--o);color:var(--c);border:none;border-radius:20px;
+  font-family:'DM Sans',sans-serif;font-weight:900;font-size:.8rem;cursor:pointer;white-space:nowrap;}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,var(--rd) 0%,var(--r) 60%,#B5451B 100%);
+  height:56px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 16px;position:sticky;top:0;z-index:500;box-shadow:0 3px 16px rgba(62,31,10,.3);}
+.hdr-brand{font-family:'Fraunces',serif;font-size:1.25rem;color:#fff;font-style:italic;}
+.hdr-brand span{color:var(--o);}
+.hdr-r{display:flex;align-items:center;gap:7px;}
+.av{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.4);
+  color:#fff;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.uname{color:rgba(255,255,255,.9);font-size:.8rem;font-weight:700;}
+.pbadge{padding:2px 8px;border-radius:20px;font-size:.65rem;font-weight:900;}
+.pfree{background:rgba(255,255,255,.15);color:rgba(255,255,255,.85);}
+.ppro{background:linear-gradient(135deg,var(--o),#E67E22);color:#fff;}
+.lout{padding:4px 9px;border-radius:16px;border:1px solid rgba(255,255,255,.3);
+  background:transparent;color:rgba(255,255,255,.8);font-size:.7rem;font-weight:700;
+  cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.lout:hover{background:rgba(255,255,255,.12);}
+.install-btn{padding:5px 10px;border-radius:16px;border:1.5px solid var(--o);
+  background:rgba(212,172,13,.15);color:var(--o);font-size:.7rem;font-weight:800;
+  cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;display:none;align-items:center;gap:4px;}
+.install-btn.on{display:flex;}
+.install-btn:hover{background:var(--o);color:var(--c);}
+
+/* NAV */
+.nav{display:flex;gap:4px;flex-wrap:wrap;justify-content:center;padding:10px 8px 0;
+  background:var(--bg);border-bottom:2px solid rgba(192,57,43,.1);position:sticky;top:56px;z-index:400;}
+.tb{padding:6px 11px;border-radius:50px;border:2px solid transparent;
+  font-family:'DM Sans',sans-serif;font-weight:700;font-size:.75rem;cursor:pointer;
+  transition:all .2s;background:transparent;color:var(--cm);}
+.tb:hover{background:var(--rcl);color:var(--rd);}
+.tb.on{background:var(--r);color:#fff;border-color:var(--rd);box-shadow:0 3px 10px rgba(192,57,43,.25);}
+.tb.pro-tab{color:var(--sal);}
+.tb.pro-tab.on{background:linear-gradient(135deg,var(--sal),#C62828);border-color:#6D0000;}
+
+/* SECCIONES */
+.sec{display:none;padding:20px 14px 100px;max-width:1160px;margin:0 auto;animation:fadeIn .32s ease;}
+.sec.on{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.stit{font-family:'Fraunces',serif;font-size:1.75rem;color:var(--rd);margin-bottom:5px;}
+.ssub{color:var(--cm);font-size:.86rem;margin-bottom:20px;}
+
+/* FILTROS */
+.filtros{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px;}
+.search-wrap{position:relative;margin-bottom:14px;}
+.search-inp{width:100%;padding:12px 16px 12px 42px;border-radius:50px;border:2px solid var(--g2);
+ font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;color:var(--c);
+ background:var(--w);transition:all .25s;box-shadow:0 2px 10px rgba(62,31,10,.06);}
+.search-inp:focus{outline:none;border-color:var(--r);box-shadow:0 4px 16px rgba(192,57,43,.15);}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:1.1rem;pointer-events:none;}
+.search-clear{position:absolute;right:14px;top:50%;transform:translateY(-50%);
+ background:var(--g2);border:none;border-radius:50%;width:22px;height:22px;
+ cursor:pointer;font-size:.75rem;display:none;align-items:center;justify-content:center;color:var(--cm);}
+.search-clear.on{display:flex;}
+.search-count{font-size:.75rem;color:var(--cm);font-weight:700;margin-bottom:10px;}
+.no-results{text-align:center;padding:40px 20px;color:var(--cm);}
+.no-results .nr-icon{font-size:3rem;margin-bottom:10px;}
+.no-results p{font-size:.88rem;line-height:1.6;}
+.fb{padding:6px 13px;border-radius:30px;border:2px solid var(--g2);background:var(--w);
+  font-family:'DM Sans',sans-serif;font-weight:700;font-size:.76rem;cursor:pointer;transition:all .2s;color:var(--cm);}
+.fb:hover,.fb.on{background:var(--v);color:#fff;border-color:var(--vd);}
+
+/* GRID */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:16px;}
+.card{background:var(--w);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden;
+  cursor:pointer;transition:transform .25s,box-shadow .25s;border:1.5px solid rgba(192,57,43,.07);}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shh);}
+.card-img{position:relative;height:175px;overflow:hidden;background:linear-gradient(135deg,var(--rcl),var(--ocl));}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.card:hover .card-img img{transform:scale(1.06);}
+.card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.5rem;}
+.ctipo{font-size:.67rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;
+  color:#fff;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:6px;}
+.t-sopa{background:var(--az);}.t-plato{background:var(--r);}
+.t-des{background:var(--des);}.t-light{background:var(--mor);}
+.t-salsa{background:var(--sal);}.t-agua{background:var(--agua);}
+.card-body{padding:14px;}
+.card h3{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--c);margin-bottom:4px;}
+.card p{font-size:.8rem;color:var(--cm);line-height:1.5;}
+.cmeta{display:flex;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--g);align-items:center;flex-wrap:wrap;}
+.mi{display:flex;align-items:center;gap:3px;font-size:.72rem;color:var(--cm);font-weight:700;}
+.dif{margin-left:auto;padding:2px 8px;border-radius:16px;font-size:.68rem;font-weight:800;}
+.dF{background:#D5F5E3;color:#145A32;}.dM{background:#FEF9E7;color:#7D6608;}.dD{background:#FADBD8;color:#922B21;}
+
+/* CALCULADORA PRESUPUESTO */
+.calc-hero{background:linear-gradient(135deg,var(--rd),var(--r));border-radius:var(--rad);padding:26px;margin-bottom:20px;position:relative;overflow:hidden;}
+.calc-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:20px 20px;}
+.calc-hero h2{font-family:'Fraunces',serif;font-size:1.5rem;color:#fff;margin-bottom:5px;position:relative;}
+.calc-hero p{color:rgba(255,255,255,.75);font-size:.85rem;position:relative;}
+.calc-box{background:var(--w);border-radius:var(--rad);padding:22px;box-shadow:var(--sh);}
+.cfields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+@media(max-width:500px){.cfields{grid-template-columns:1fr;}}
+.clabel{display:block;font-size:.72rem;font-weight:800;color:var(--cm);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+.cinp{width:100%;padding:11px 13px;border-radius:10px;border:2px solid var(--g);
+  font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;color:var(--c);
+  background:var(--bg);transition:border-color .2s;}
+.cinp:focus{outline:none;border-color:var(--r);}
+.prow{display:flex;gap:5px;}
+.pbtn{flex:1;padding:9px;border-radius:9px;border:2px solid var(--g);background:var(--bg);
+  font-family:'DM Sans',sans-serif;font-weight:800;font-size:.85rem;cursor:pointer;color:var(--c);transition:all .2s;}
+.pbtn.on{background:var(--r);color:#fff;border-color:var(--rd);}
+.cbtn{width:100%;padding:12px;background:var(--r);color:#fff;border:none;border-radius:10px;
+  font-family:'DM Sans',sans-serif;font-weight:900;font-size:.92rem;cursor:pointer;
+  box-shadow:0 5px 16px rgba(192,57,43,.3);transition:all .22s;display:flex;align-items:center;justify-content:center;gap:6px;}
+.cbtn:hover{background:var(--rd);transform:translateY(-2px);}
+.cres{display:none;margin-top:16px;background:linear-gradient(135deg,var(--v),var(--vd));border-radius:12px;padding:16px 20px;color:#fff;}
+.cres.on{display:block;animation:fadeIn .35s ease;}
+.cres-tit{font-size:.7rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;opacity:.75;margin-bottom:4px;}
+.cres-h{font-family:'Fraunces',serif;font-size:1.5rem;margin-bottom:10px;}
+.cres-list{display:flex;flex-direction:column;gap:6px;}
+.cres-item{display:flex;justify-content:space-between;align-items:center;
+  background:rgba(255,255,255,.12);border-radius:9px;padding:8px 12px;font-size:.82rem;font-weight:700;cursor:pointer;}
+.cres-item:hover{background:rgba(255,255,255,.2);}
+.cres-item strong{margin-left:auto;white-space:nowrap;}
+
+/* CALC TABS */
+.calc-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.ctab{padding:10px 18px;border-radius:50px;border:2px solid var(--g2);background:var(--w);
+  font-family:'DM Sans',sans-serif;font-weight:800;font-size:.82rem;cursor:pointer;color:var(--cm);transition:all .2s;}
+.ctab.on{background:var(--r);color:#fff;border-color:var(--rd);}
+
+/* CALC NEGOCIO */
+.neg-box{background:var(--w);border-radius:var(--rad);padding:22px;box-shadow:var(--sh);margin-bottom:16px;}
+.neg-box h3{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--rd);margin-bottom:14px;}
+.ing-row{display:grid;grid-template-columns:1fr auto auto auto;gap:8px;align-items:center;margin-bottom:8px;}
+.ing-row input{padding:9px 11px;border-radius:9px;border:2px solid var(--g);font-family:'DM Sans',sans-serif;
+  font-size:.85rem;font-weight:600;color:var(--c);background:var(--bg);transition:border-color .2s;width:100%;}
+.ing-row input:focus{outline:none;border-color:var(--r);}
+.ing-row select{padding:9px 8px;border-radius:9px;border:2px solid var(--g);font-family:'DM Sans',sans-serif;
+  font-size:.82rem;font-weight:600;color:var(--c);background:var(--bg);}
+.ing-row .del-ing{width:32px;height:32px;border-radius:8px;border:none;background:var(--rcl);color:var(--rd);
+  cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.add-ing{padding:9px 18px;background:var(--vcl);color:var(--vd);border:2px solid var(--v);
+  border-radius:9px;font-family:'DM Sans',sans-serif;font-weight:800;font-size:.82rem;cursor:pointer;margin-bottom:14px;}
+.neg-res{background:linear-gradient(135deg,#1B7A3E,#145A32);border-radius:12px;padding:16px 20px;color:#fff;margin-top:12px;}
+.neg-res-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+.neg-r-item{background:rgba(255,255,255,.1);border-radius:9px;padding:10px 14px;text-align:center;}
+.neg-r-item span{display:block;font-size:.64rem;text-transform:uppercase;letter-spacing:.5px;opacity:.75;margin-bottom:3px;}
+.neg-r-item strong{font-family:'Fraunces',serif;font-size:1.3rem;}
+.margen-inp{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.margen-inp label{font-size:.8rem;font-weight:800;color:var(--cm);white-space:nowrap;}
+.margen-inp input{width:80px;padding:8px 10px;border-radius:9px;border:2px solid var(--g);
+  font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;color:var(--c);background:var(--bg);}
+.margen-inp input:focus{outline:none;border-color:var(--r);}
+
+/* CALC LISTA COMPRAS */
+.lista-comp-box{background:var(--w);border-radius:var(--rad);padding:22px;box-shadow:var(--sh);}
+.rec-sel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:16px;max-height:320px;overflow-y:auto;}
+.rec-sel-item{display:flex;align-items:center;gap:8px;padding:8px 11px;border-radius:10px;
+  border:2px solid var(--g);cursor:pointer;transition:all .18s;font-size:.8rem;font-weight:700;}
+.rec-sel-item.sel{background:var(--rcl);border-color:var(--r);color:var(--rd);}
+.rec-sel-item:hover{border-color:var(--r);}
+
+/* MODAL */
+.moverlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(62,31,10,.65);
+  backdrop-filter:blur(6px);overflow-y:auto;padding:14px;}
+.moverlay.on{display:flex;align-items:flex-start;justify-content:center;}
+.modal{background:var(--w);border-radius:22px;max-width:800px;width:100%;margin:auto;
+  box-shadow:0 32px 80px rgba(62,31,10,.4);overflow:hidden;animation:up .32s ease;}
+.mhero{position:relative;height:230px;overflow:hidden;background:linear-gradient(135deg,var(--rd),var(--r));}
+.mhero.bg-sopa{background:linear-gradient(135deg,#1565C0,#0D47A1);}
+.mhero.bg-des{background:linear-gradient(135deg,#D35400,#E67E22);}
+.mhero.bg-light{background:linear-gradient(135deg,#1B7A3E,#27AE60);}
+.mhero.bg-salsa{background:linear-gradient(135deg,#4A0000,#8B0000);}
+.mhero.bg-agua{background:linear-gradient(135deg,#0077B6,#00B4D8);}
+.mhero img{width:100%;height:100%;object-fit:cover;opacity:.82;}
+.mhero-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:5rem;gap:8px;}
+.mhero-ph span{font-size:.75rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.mhero-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(62,31,10,.88) 0%,transparent 55%);
+  display:flex;align-items:flex-end;padding:18px;}
+.mhero-ov h2{font-family:'Fraunces',serif;font-size:1.85rem;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.4);}
+.mclose{position:absolute;top:11px;right:11px;width:36px;height:36px;border-radius:50%;
+  background:rgba(0,0,0,.5);backdrop-filter:blur(3px);border:2px solid rgba(255,255,255,.3);
+  color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .2s;z-index:10;line-height:1;}
+.mclose:hover{background:rgba(0,0,0,.75);}
+.mbody{padding:20px;}
+.nutr{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px;}
+.nutr-i{background:var(--morcl);border-radius:9px;padding:7px 11px;text-align:center;flex:1;min-width:68px;}
+.nutr-i span{display:block;font-size:.62rem;color:var(--mor);font-weight:800;text-transform:uppercase;}
+.nutr-i strong{font-size:.98rem;color:var(--mor);}
+.psel{display:flex;align-items:center;gap:11px;background:var(--ocl);border-radius:12px;
+  padding:11px 15px;margin-bottom:16px;border:1.5px solid rgba(212,172,13,.25);flex-wrap:wrap;}
+.psel label{font-weight:800;color:var(--c);font-size:.83rem;}
+.pbtns2{display:flex;gap:5px;}
+.pb2{width:34px;height:34px;border-radius:8px;border:2px solid rgba(212,172,13,.35);
+  background:var(--w);font-weight:800;font-size:.85rem;cursor:pointer;transition:all .18s;color:var(--c);}
+.pb2.on,.pb2:hover{background:var(--o);color:#fff;border-color:var(--o);}
+.costo-t{margin-left:auto;text-align:right;}
+.costo-t span{display:block;font-size:.67rem;color:var(--cm);font-weight:700;}
+.costo-t strong{font-size:1.2rem;color:var(--vd);font-family:'Fraunces',serif;}
+.itit,.ptit{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--rd);margin-bottom:10px;}
+.igrid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:18px;}
+@media(max-width:440px){.igrid{grid-template-columns:1fr;}}
+.ii{display:flex;justify-content:space-between;align-items:center;background:var(--g);border-radius:9px;padding:7px 11px;font-size:.8rem;}
+.ii-n{font-weight:700;color:var(--c);}
+.ii-c{background:var(--r);color:#fff;padding:2px 8px;border-radius:16px;font-size:.7rem;font-weight:800;white-space:nowrap;}
+.paso{display:flex;gap:11px;margin-bottom:11px;background:var(--g);border-radius:12px;padding:11px;border-left:4px solid var(--r);}
+.paso-n{min-width:30px;height:30px;border-radius:50%;background:var(--r);color:#fff;font-weight:900;font-size:.88rem;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.paso-t{font-size:.67rem;font-weight:800;color:var(--v);margin-bottom:3px;text-transform:uppercase;letter-spacing:.8px;}
+.paso-d{font-size:.84rem;line-height:1.6;color:var(--c);}
+.fav-btn{width:100%;margin-top:14px;padding:11px;background:linear-gradient(135deg,var(--v),var(--vd));
+  color:#fff;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:900;font-size:.88rem;
+  cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;}
+
+/* MENÚ SEMANAL */
+.mwrap{overflow-x:auto;border-radius:var(--rad);margin-bottom:14px;}
+.mgrid{display:grid;grid-template-columns:100px repeat(7,1fr);gap:4px;min-width:680px;}
+.mc{background:var(--w);border-radius:8px;padding:7px 5px;border:1.5px solid rgba(192,57,43,.09);
+  font-size:.73rem;text-align:center;min-height:55px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.mc.hd{background:var(--r);color:#fff;font-weight:800;font-size:.75rem;min-height:auto;padding:6px;border-radius:8px;}
+.mc.ht-des{background:var(--des);color:#fff;font-weight:800;font-size:.7rem;border-radius:8px;}
+.mc.ht-sopa{background:var(--az);color:#fff;font-weight:800;font-size:.7rem;border-radius:8px;}
+.mc.ht-plato{background:var(--r);color:#fff;font-weight:800;font-size:.7rem;border-radius:8px;}
+.mc.ed{cursor:pointer;transition:all .18s;}
+.mc.ed:hover{background:var(--rcl);border-color:var(--r);}
+.mc.tiene{background:var(--ocl);border-color:var(--o);font-weight:700;color:var(--c);font-size:.7rem;}
+.prow-m{display:flex;align-items:center;gap:8px;margin-bottom:13px;flex-wrap:wrap;}
+.prow-m select{padding:7px 11px;border-radius:9px;border:2px solid var(--o);
+  font-family:'DM Sans',sans-serif;font-weight:700;font-size:.83rem;background:var(--ocl);color:var(--c);cursor:pointer;}
+.mbtns{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+.btn-p{padding:11px 20px;background:var(--v);color:#fff;border:none;border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-weight:900;font-size:.85rem;cursor:pointer;
+  box-shadow:0 5px 16px rgba(27,122,62,.3);transition:all .22s;display:inline-flex;align-items:center;gap:5px;}
+.btn-p:hover{background:var(--vd);transform:translateY(-2px);}
+.btn-s{padding:11px 20px;background:var(--az);color:#fff;border:none;border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-weight:900;font-size:.85rem;cursor:pointer;
+  box-shadow:0 5px 16px rgba(21,101,192,.3);transition:all .22s;display:inline-flex;align-items:center;gap:5px;}
+.btn-s:hover{background:#0D47A1;transform:translateY(-2px);}
+.lista-box{display:none;margin-top:16px;background:var(--w);border-radius:var(--rad);padding:18px;box-shadow:var(--sh);border:1.5px solid rgba(27,122,62,.18);}
+.lista-box.on{display:block;animation:fadeIn .35s ease;}
+.lista-box h3{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--vd);margin-bottom:11px;}
+.litems{columns:2 160px;gap:12px;}
+.litem{display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:1px dashed rgba(27,122,62,.18);break-inside:avoid;font-size:.82rem;}
+.lchk{width:17px;height:17px;border-radius:4px;border:2px solid var(--v);cursor:pointer;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;transition:all .18s;}
+.lchk.on{background:var(--v);}
+.lchk.on::after{content:'✓';color:#fff;font-size:.62rem;font-weight:900;}
+.costo-s{margin-top:13px;padding:11px 15px;background:var(--vcl);border-radius:10px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:7px;}
+.costo-s span{font-weight:700;color:var(--vd);font-size:.88rem;}
+.costo-s strong{font-family:'Fraunces',serif;font-size:1.35rem;color:var(--vd);}
+.mguardados{margin-top:22px;}
+.mguardados h3{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--vd);margin-bottom:11px;}
+.mgi{background:var(--w);border-radius:11px;padding:12px 15px;box-shadow:var(--sh);
+  border:1.5px solid rgba(27,122,62,.12);display:flex;align-items:center;
+  justify-content:space-between;gap:9px;flex-wrap:wrap;margin-bottom:8px;}
+.mgi-i .mn{font-weight:800;color:var(--c);}
+.mgi-i .mf{font-size:.73rem;color:var(--cm);}
+.mgi-i .mr{font-size:.76rem;color:var(--vd);font-weight:700;margin-top:2px;}
+.mgi-b{display:flex;gap:5px;}
+.bsm{padding:5px 11px;border-radius:7px;border:none;font-family:'DM Sans',sans-serif;font-weight:800;font-size:.73rem;cursor:pointer;transition:all .18s;}
+.bcar{background:var(--vcl);color:var(--vd);}.bcar:hover{background:var(--v);color:#fff;}
+.bdel{background:var(--rcl);color:var(--rd);}.bdel:hover{background:var(--r);color:#fff;}
+
+/* PRO WALL */
+.pro-wall{text-align:center;padding:36px 18px;background:linear-gradient(135deg,var(--ocl),var(--rcl));
+  border-radius:var(--rad);border:2px dashed var(--o);margin:10px 0;}
+.pro-wall h3{font-family:'Fraunces',serif;font-size:1.35rem;color:var(--rd);margin-bottom:6px;}
+.pro-wall p{color:var(--cm);margin-bottom:16px;font-size:.87rem;}
+.upg-btn{padding:12px 26px;background:linear-gradient(135deg,var(--o),#E67E22);color:var(--c);
+  border:none;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:900;font-size:.9rem;
+  cursor:pointer;box-shadow:0 5px 18px rgba(212,172,13,.4);transition:all .22s;}
+.upg-btn:hover{transform:translateY(-2px);}
+
+/* REZAGADOS */
+.rez-box{background:var(--w);border-radius:var(--rad);padding:20px;box-shadow:var(--sh);margin-bottom:20px;}
+.rinps{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px;}
+.rinp{padding:9px 12px;border-radius:9px;border:2px solid var(--g);font-family:'DM Sans',sans-serif;
+  font-size:.86rem;font-weight:600;color:var(--c);background:var(--bg);flex:1;min-width:120px;transition:border-color .2s;}
+.rinp:focus{outline:none;border-color:var(--r);}
+.radd{padding:9px 15px;background:var(--des);color:#fff;border:none;border-radius:9px;
+  font-family:'DM Sans',sans-serif;font-weight:900;cursor:pointer;transition:all .18s;}
+.radd:hover{background:#B8460B;}
+.rtags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px;}
+.rtag{display:flex;align-items:center;gap:5px;background:var(--ccl);border-radius:30px;
+  padding:4px 10px;font-weight:700;font-size:.78rem;color:var(--c);}
+.rtx{cursor:pointer;width:15px;height:15px;border-radius:50%;background:var(--cm);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:900;transition:background .18s;}
+.rtx:hover{background:var(--r);}
+.rsug-btn{padding:10px 22px;background:var(--r);color:#fff;border:none;border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-weight:900;font-size:.88rem;cursor:pointer;
+  box-shadow:0 5px 16px rgba(192,57,43,.3);transition:all .22s;display:inline-flex;align-items:center;gap:6px;}
+.rsug-btn:hover{background:var(--rd);transform:translateY(-2px);}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:13px;margin-top:15px;}
+.scard{background:var(--w);border-radius:var(--rad);padding:14px;box-shadow:var(--sh);
+  border:1.5px solid rgba(192,57,43,.09);transition:transform .2s;cursor:pointer;}
+.scard:hover{transform:translateY(-4px);box-shadow:var(--shh);}
+.sm2{font-size:.67rem;font-weight:900;color:var(--v);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px;}
+.scard h4{font-family:'Fraunces',serif;font-size:.98rem;color:var(--c);margin-bottom:3px;}
+.scard p{font-size:.77rem;color:var(--cm);}
+.schips{display:flex;flex-wrap:wrap;gap:3px;margin-top:6px;}
+.schip{background:var(--vcl);color:var(--vd);padding:2px 6px;border-radius:7px;font-size:.65rem;font-weight:700;}
+
+/* PERFIL */
+.pfbox{background:var(--w);border-radius:var(--rad);padding:24px;box-shadow:var(--sh);max-width:460px;}
+.pfav{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--r),var(--o));
+  display:flex;align-items:center;justify-content:center;font-size:1.75rem;font-weight:900;color:#fff;margin-bottom:13px;}
+.pfn{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--c);}
+.pfe{color:var(--cm);font-size:.86rem;margin-bottom:13px;}
+.pstats{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:16px;}
+.psi{background:var(--g);border-radius:10px;padding:10px 15px;text-align:center;flex:1;min-width:85px;}
+.psi span{display:block;font-size:.64rem;color:var(--cm);font-weight:800;text-transform:uppercase;}
+.psi strong{font-size:1.25rem;color:var(--rd);font-family:'Fraunces',serif;}
+.plan-sec{background:linear-gradient(135deg,var(--ocl),#FFF3CD);border-radius:12px;padding:15px;border:1.5px solid rgba(212,172,13,.25);}
+.plan-sec h4{font-weight:900;color:var(--c);margin-bottom:6px;}
+.pfl{list-style:none;display:flex;flex-direction:column;gap:5px;margin:7px 0 13px;}
+.pfl li{font-size:.83rem;color:var(--cm);}
+.pfl li::before{content:'✅ ';}
+.pfl li.no::before{content:'🔒 ';}
+.pfl li.no{color:#C0C0C0;}
+.pfl li.ad::before{content:'📢 ';}
+.chg-pass{margin-top:14px;}
+.chg-pass h4{font-weight:800;color:var(--c);margin-bottom:10px;font-size:.9rem;}
+.chg-inp{width:100%;padding:10px 13px;border-radius:9px;border:2px solid var(--g);
+  font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;color:var(--c);
+  background:var(--bg);margin-bottom:8px;transition:border-color .2s;}
+.chg-inp:focus{outline:none;border-color:var(--az);}
+.btn-chg{width:100%;padding:10px;background:var(--az);color:#fff;border:none;border-radius:9px;
+  font-family:'DM Sans',sans-serif;font-weight:900;font-size:.85rem;cursor:pointer;transition:all .2s;}
+.btn-chg:hover{background:#0D47A1;}
+
+/* Mini modal */
+.mm{display:none;position:fixed;inset:0;z-index:2000;background:rgba(62,31,10,.5);backdrop-filter:blur(4px);align-items:center;justify-content:center;}
+.mm.on{display:flex;}
+.mm-box{background:var(--w);border-radius:18px;padding:18px;max-width:370px;width:90%;box-shadow:0 24px 60px rgba(62,31,10,.35);animation:up .28s ease;}
+.mm-box h3{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--rd);margin-bottom:10px;}
+.mm-list{max-height:270px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;}
+.mm-item{padding:8px 11px;border-radius:9px;border:1.5px solid var(--g);cursor:pointer;font-weight:700;font-size:.83rem;transition:all .18s;display:flex;justify-content:space-between;align-items:center;}
+.mm-item:hover{background:var(--rcl);border-color:var(--r);color:var(--rd);}
+.mm-cancel{margin-top:8px;width:100%;padding:8px;border-radius:9px;border:2px solid var(--g);background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:700;color:var(--cm);transition:all .18s;}
+.mm-cancel:hover{background:var(--g);}
+
+/* Guardar menú */
+.sm-ov{display:none;position:fixed;inset:0;z-index:2000;background:rgba(62,31,10,.5);backdrop-filter:blur(4px);align-items:center;justify-content:center;}
+.sm-ov.on{display:flex;}
+.sm-box{background:var(--w);border-radius:18px;padding:22px;max-width:350px;width:90%;box-shadow:0 24px 60px rgba(62,31,10,.35);animation:up .28s ease;}
+.sm-box h3{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--az);margin-bottom:11px;}
+.sm-inp{width:100%;padding:10px 12px;border-radius:9px;border:2px solid var(--g);
+  font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;color:var(--c);background:var(--bg);margin-bottom:11px;}
+.sm-inp:focus{outline:none;border-color:var(--az);}
+.sm-btns{display:flex;gap:7px;}
+.sm-ok{flex:1;padding:10px;background:var(--az);color:#fff;border:none;border-radius:9px;font-family:'DM Sans',sans-serif;font-weight:900;cursor:pointer;}
+.sm-ok:hover{background:#0D47A1;}
+.sm-cancel{flex:1;padding:10px;background:var(--g);color:var(--cm);border:none;border-radius:9px;font-family:'DM Sans',sans-serif;font-weight:700;cursor:pointer;}
+
+/* MercadoPago Modal */
+.mp-ov{display:none;position:fixed;inset:0;z-index:3000;background:rgba(62,31,10,.65);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px;}
+.mp-ov.on{display:flex;}
+.mp-box{background:var(--w);border-radius:22px;max-width:440px;width:100%;padding:28px;box-shadow:0 40px 80px rgba(0,0,0,.4);animation:up .35s ease;position:relative;}
+.mp-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.mp-logo-tag{background:#009EE3;color:#fff;border-radius:8px;padding:6px 12px;font-weight:900;font-size:.88rem;}
+.mp-box h3{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--c);margin-bottom:5px;}
+.mp-box p{color:var(--cm);font-size:.86rem;margin-bottom:18px;}
+.mp-sum{background:var(--g);border-radius:12px;padding:14px;margin-bottom:18px;}
+.mp-row{display:flex;justify-content:space-between;margin-bottom:5px;font-size:.86rem;color:var(--cm);}
+.mp-row:last-child{padding-top:8px;border-top:1px solid var(--g2);font-weight:900;font-size:1rem;color:var(--c);margin-bottom:0;}
+.mp-form{display:flex;flex-direction:column;gap:10px;}
+.mp-inp{padding:11px 13px;border-radius:10px;border:2px solid var(--g);font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;color:var(--c);background:var(--bg);transition:border-color .2s;}
+.mp-inp:focus{outline:none;border-color:#009EE3;}
+.mp-row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.mp-btn{padding:13px;background:#009EE3;color:#fff;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:900;font-size:.92rem;cursor:pointer;transition:all .22s;box-shadow:0 5px 18px rgba(0,158,227,.3);display:flex;align-items:center;justify-content:center;gap:7px;}
+.mp-btn:hover{background:#0087C8;transform:translateY(-1px);}
+.mp-sec{text-align:center;font-size:.72rem;color:#9E9E9E;margin-top:8px;font-weight:600;}
+.mp-close{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:50%;background:var(--g);border:none;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;}
+.mp-success{display:none;text-align:center;padding:16px 0;}
+.mp-success.on{display:block;animation:fadeIn .4s ease;}
+.mp-success-icon{font-size:3.5rem;margin-bottom:12px;}
+.mp-success h3{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--v);margin-bottom:6px;}
+.mp-success p{color:var(--cm);font-size:.86rem;margin-bottom:16px;}
+.mp-success button{padding:11px 22px;background:var(--v);color:#fff;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:900;cursor:pointer;font-size:.88rem;}
+.spinner{display:inline-block;width:15px;height:15px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .65s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--c);color:#fff;
+  padding:10px 20px;border-radius:30px;font-weight:700;font-size:.83rem;z-index:9999;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);animation:fadeIn .28s ease;pointer-events:none;white-space:nowrap;font-family:'DM Sans',sans-serif;}
+footer{text-align:center;padding:18px;font-size:.73rem;color:var(--cm);border-top:1px solid rgba(192,57,43,.1);background:var(--ccl);}
+@media(max-width:600px){.hdr-brand{font-size:1.05rem;}.uname{display:none;}}
+</style>
+</head>
+<body>
+
+<!-- AUTH -->
+<div id="auth">
+ <div class="auth-card">
+  <div class="auth-brand">
+   <h1>Sabores de <span>México</span> 🇲🇽</h1>
+   <p>100+ recetas auténticas · Gratis con anuncios · Pro sin anuncios</p>
+  </div>
+  <div class="auth-seg">
+   <button class="aseg on" onclick="switchTab('login')">Iniciar sesión</button>
+   <button class="aseg" onclick="switchTab('reg')">Registrarse</button>
+  </div>
+  <div class="aform" id="loginForm">
+   <div class="aerr" id="lerr"></div>
+   <input class="ainp" id="lemail" type="email" placeholder="Correo electrónico">
+   <input class="ainp" id="lpass" type="password" placeholder="Contraseña" onkeydown="if(event.key==='Enter')doLogin()">
+   <button class="abtn" onclick="doLogin()">Entrar 🍳</button>
+   <div class="adiv">— o —</div>
+   <button class="ademo" onclick="loginDemo()">🎯 Entrar como Demo (sin registro)</button>
+  </div>
+  <div class="aform hide" id="regForm">
+   <div class="aerr" id="rerr"></div>
+   <input class="ainp" id="rnombre" type="text" placeholder="Tu nombre">
+   <input class="ainp" id="remail" type="email" placeholder="Correo electrónico">
+   <input class="ainp" id="rpass" type="password" placeholder="Contraseña (mín. 6 caracteres)" onkeydown="if(event.key==='Enter')doReg()">
+   <button class="abtn" onclick="doReg()">Crear cuenta gratis 🎉</button>
+   <p class="plan-note">Gratis: 100+ recetas + anuncios · <strong>Pro $79/mes</strong> o <strong>$349 de por vida</strong>: sin anuncios + IA + todo</p>
+  </div>
+ </div>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+ <div class="hdr-brand">Sabores de <span>México</span></div>
+ <div class="hdr-r">
+  <div class="av" id="hav" onclick="goTab('perfil')">U</div>
+  <span class="uname" id="hname">Usuario</span>
+  <span class="pbadge pfree" id="hbadge">FREE</span>
+  <button class="lout" onclick="doLogout()">Salir</button>
+ </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+ <button class="tb on" onclick="goTab('recetas')">🍽️ Recetas</button>
+ <button class="tb" onclick="goTab('calc')">🧮 Calculadoras</button>
+ <button class="tb" onclick="goTab('menu')">📅 Menú</button>
+ <button class="tb" onclick="goTab('rez')">♻️ Rezagados</button>
+ <button class="tb pro-tab" onclick="goTab('salsas')">🌶️ Salsas ⭐</button>
+ <button class="tb pro-tab" onclick="goTab('aguas')">💧 Aguas ⭐</button>
+ <button class="tb" onclick="goTab('perfil')">👤 Perfil</button>
+</nav>
+
+<!-- RECETAS -->
+<div id="sec-recetas" class="sec on">
+ <h2 class="stit">Cocina Mexicana Auténtica</h2>
+ <p class="ssub">100+ recetas reales · Ingredientes escalables · Paso a paso</p>
+ <div id="installBanner" style="background:linear-gradient(135deg,#1565C0,#0D47A1);border-radius:12px;padding:12px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;cursor:pointer;" onclick="instalarApp()">
+  <div style="font-size:2rem;flex-shrink:0;">📲</div>
+  <div style="flex:1;">
+   <div style="color:#fff;font-weight:900;font-size:.88rem;">Instalar App en tu celular</div>
+   <div style="color:rgba(255,255,255,.7);font-size:.72rem;margin-top:2px;">Ábrela sin internet · Sin App Store · Gratis</div>
+  </div>
+  <div style="background:var(--o);color:var(--c);padding:7px 14px;border-radius:50px;font-weight:900;font-size:.78rem;white-space:nowrap;">Instalar →</div>
+ </div>
+ <div class="ad-banner" id="adTop">
+  <span class="ad-tag">ANUNCIO</span>
+  <span class="ad-txt">🛒 Walmart en línea — Consigue tus ingredientes con entrega a domicilio</span>
+  <button class="ad-cta">Ver oferta</button>
+  <button class="ad-close" onclick="document.getElementById('adTop').style.display='none'">✕</button>
+ </div>
+ <div class="search-wrap">
+  <span class="search-icon">🔍</span>
+  <input class="search-inp" id="searchInp" type="text" placeholder="Buscar receta... ej: pozole, tacos, enchiladas"
+   oninput="buscarReceta(this.value)" autocomplete="off">
+  <button class="search-clear" id="searchClear" onclick="limpiarBusqueda()">✕</button>
+ </div>
+ <div class="search-count" id="searchCount"></div>
+ <div class="filtros">
+  <button class="fb on" onclick="filtrar('todos',this)">Todas</button>
+  <button class="fb" onclick="filtrar('Sopa/Entrada',this)">🥣 Sopas</button>
+  <button class="fb" onclick="filtrar('Plato Fuerte',this)">🍽️ Platos</button>
+  <button class="fb" onclick="filtrar('Desayuno',this)">🍳 Desayunos</button>
+  <button class="fb" onclick="filtrar('Dieta/Light',this)">🥗 Light</button>
+  <button class="fb" onclick="filtrar('Fácil',this)">🟢 Fácil</button>
+ </div>
+ <div class="rgrid" id="rgrid"></div>
+ <div class="ad-big" id="adMid" style="margin-top:20px">
+  <span class="ad-tag">ANUNCIO</span>
+  <p>🥑 Chedraui — Frutas y verduras frescas al mejor precio. ¡Ahorra esta semana!</p>
+  <button>Ver promociones</button>
+ </div>
+</div>
+
+<!-- CALCULADORAS -->
+<div id="sec-calc" class="sec">
+ <h2 class="stit">Calculadoras</h2>
+ <p class="ssub">Presupuesto personal · Costos de negocio · Lista del súper</p>
+ <div class="ad-banner" id="adCalc">
+  <span class="ad-tag">ANUNCIO</span>
+  <span class="ad-txt">💳 Mercado Pago — Paga en cuotas sin intereses en supermercados</span>
+  <button class="ad-cta">Ver más</button>
+  <button class="ad-close" onclick="document.getElementById('adCalc').style.display='none'">✕</button>
+ </div>
+ <div class="calc-tabs">
+  <button class="ctab on" onclick="switchCalc('presupuesto',this)">💵 Presupuesto</button>
+  <button class="ctab" onclick="switchCalc('negocio',this)">🏪 Negocio</button>
+  <button class="ctab" onclick="switchCalc('lista',this)">🛒 Lista de Compras</button>
+ </div>
+
+ <!-- PRESUPUESTO -->
+ <div id="calc-presupuesto">
+  <div class="calc-hero">
+   <h2>¿Cuánto tienes para gastar hoy?</h2>
+   <p>Dinos tu presupuesto y cuántos son · Te decimos qué puedes cocinar</p>
+  </div>
+  <div class="calc-box">
+   <div class="cfields">
+    <div>
+     <label class="clabel">💵 Presupuesto (pesos MXN)</label>
+     <input class="cinp" id="cpres" type="number" placeholder="Ej: 150" min="1">
+    </div>
+    <div>
+     <label class="clabel">👥 Número de personas</label>
+     <div class="prow">
+      <button class="pbtn" onclick="setP(1,this)">1</button>
+      <button class="pbtn" onclick="setP(2,this)">2</button>
+      <button class="pbtn on" onclick="setP(4,this)">4</button>
+      <button class="pbtn" onclick="setP(6,this)">6</button>
+      <button class="pbtn" onclick="setP(8,this)">8</button>
+     </div>
+    </div>
+   </div>
+   <button class="cbtn" onclick="calcular()">🍽️ Ver qué puedo cocinar</button>
+   <div class="cres" id="cres">
+    <div class="cres-tit">Con tu presupuesto puedes preparar:</div>
+    <div class="cres-h" id="cresH"></div>
+    <div class="cres-list" id="cresL"></div>
+   </div>
+  </div>
+ </div>
+
+ <!-- NEGOCIO -->
+ <div id="calc-negocio" style="display:none">
+  <div class="calc-hero" style="background:linear-gradient(135deg,#1B7A3E,#145A32)">
+   <h2>Calculadora para Negocios</h2>
+   <p>Calcula el costo de tus platillos y el precio de venta sugerido</p>
+  </div>
+  <div class="neg-box">
+   <h3>🥘 Nombre del platillo</h3>
+   <input class="cinp" id="negNombre" placeholder="Ej: Taco de birria, Hamburguesa, Orden de camarones..." style="margin-bottom:14px">
+   <h3>🧄 Ingredientes</h3>
+   <div id="negIngs"></div>
+   <button class="add-ing" onclick="addIngNeg()">+ Agregar ingrediente</button>
+   <div class="margen-inp">
+    <label>📈 Margen de ganancia (%)</label>
+    <input type="number" id="negMargen" value="40" min="1" max="500">
+    <label style="margin-left:8px">🍽️ Porciones / unidades</label>
+    <input type="number" id="negPorciones" value="1" min="1">
+   </div>
+   <button class="cbtn" onclick="calcNegocio()" style="background:var(--v);box-shadow:0 5px 16px rgba(27,122,62,.3)">🧮 Calcular costo y precio</button>
+   <div id="negRes"></div>
+  </div>
+ </div>
+
+ <!-- LISTA COMPRAS -->
+ <div id="calc-lista" style="display:none">
+  <div class="calc-hero" style="background:linear-gradient(135deg,var(--az),#0D47A1)">
+   <h2>Lista de Compras por Receta</h2>
+   <p>Selecciona recetas y calcula el costo total de ingredientes</p>
+  </div>
+  <div class="lista-comp-box">
+   <label class="clabel">Selecciona recetas:</label>
+   <div class="rec-sel-grid" id="recSelGrid"></div>
+   <div class="cfields" style="margin-top:12px">
+    <div>
+     <label class="clabel">👥 Personas</label>
+     <div class="prow">
+      <button class="pbtn" onclick="setLP(1,this)">1</button>
+      <button class="pbtn" onclick="setLP(2,this)">2</button>
+      <button class="pbtn on" onclick="setLP(4,this)">4</button>
+      <button class="pbtn" onclick="setLP(6,this)">6</button>
+      <button class="pbtn" onclick="setLP(8,this)">8</button>
+     </div>
+    </div>
+   </div>
+   <button class="cbtn" onclick="genListaCompras()" style="margin-top:8px">🛒 Generar lista de compras</button>
+   <div id="listaComprasRes"></div>
+  </div>
+ </div>
+</div>
+
+<!-- MENÚ SEMANAL -->
+<div id="sec-menu" class="sec">
+ <div class="ad-banner" id="adMenu">
+  <span class="ad-tag">ANUNCIO</span>
+  <span class="ad-txt">🍳 Sazón Knorr — El secreto de las mejores recetas mexicanas</span>
+  <button class="ad-cta">Conocer</button>
+  <button class="ad-close" onclick="document.getElementById('adMenu').style.display='none'">✕</button>
+ </div>
+ <h2 class="stit">Planifica tu Semana</h2>
+ <p class="ssub">Desayuno + Entrada/Sopa + Plato Fuerte · Lista del súper automática</p>
+ <div class="prow-m">
+  <span style="font-weight:800;color:var(--c)">👥 Porciones:</span>
+  <select id="pGlobal">
+   <option value="2">2 personas</option>
+   <option value="4" selected>4 personas</option>
+   <option value="6">6 personas</option>
+   <option value="8">8 personas</option>
+  </select>
+ </div>
+ <div class="mwrap"><div class="mgrid" id="mgrid"></div></div>
+ <div class="mbtns">
+  <button class="btn-p" onclick="genLista()">🛒 Generar Lista del Súper</button>
+  <button class="btn-s" onclick="abrirGuardar()">💾 Guardar Menú</button>
+ </div>
+ <div class="lista-box" id="listaBox"></div>
+ <div class="mguardados" id="mguardados"></div>
+</div>
+
+<!-- REZAGADOS -->
+<div id="sec-rez" class="sec">
+ <h2 class="stit">¿Qué tengo en casa?</h2>
+ <p class="ssub">Captura lo que te sobró · La IA sugiere recetas para no desperdiciar</p>
+ <div class="rez-box">
+  <div class="rinps">
+   <input class="rinp" id="rinp" placeholder="ej: jitomate, cebolla..." onkeydown="if(event.key==='Enter')addRez()">
+   <button class="radd" onclick="addRez()">+ Agregar</button>
+  </div>
+  <div class="rtags" id="rtags"></div>
+  <button class="rsug-btn" onclick="sugerir()"><span id="sugTxt">🤖 Sugerir con IA</span></button>
+ </div>
+ <div id="sugRes"></div>
+</div>
+
+<!-- SALSAS (PRO) -->
+<div id="sec-salsas" class="sec">
+ <h2 class="stit">🌶️ Salsas Mexicanas</h2>
+ <p class="ssub">20 salsas auténticas — Sección exclusiva Pro</p>
+ <div id="salsasContent"></div>
+</div>
+
+<!-- AGUAS (PRO) -->
+<div id="sec-aguas" class="sec">
+ <h2 class="stit">💧 Aguas Frescas</h2>
+ <p class="ssub">10 aguas artesanales — Sección exclusiva Pro</p>
+ <div id="aguasContent"></div>
+</div>
+
+<!-- PERFIL -->
+<div id="sec-perfil" class="sec">
+ <h2 class="stit">Mi Perfil</h2>
+ <div class="pfbox">
+  <div class="pfav" id="pfav">U</div>
+  <div class="pfn" id="pfn">Usuario</div>
+  <div class="pfe" id="pfe">correo@email.com</div>
+  <div class="pstats">
+   <div class="psi"><span>Recetas vistas</span><strong id="sv">0</strong></div>
+   <div class="psi"><span>Menús guardados</span><strong id="sm2">0</strong></div>
+   <div class="psi"><span>Favoritos</span><strong id="sf">0</strong></div>
+  </div>
+  <div class="plan-sec">
+   <h4>Plan: <span class="pbadge" id="ppbadge">FREE</span></h4>
+   <ul class="pfl" id="pfl"></ul>
+   <button class="upg-btn" id="upgBtn" onclick="abrirMP()">⭐ Pro — $79/mes · o $349 de por vida</button>
+   <button class="upg-btn" id="instBtnPerfil" onclick="instalarApp()" style="margin-top:8px;background:linear-gradient(135deg,#1565C0,#0D47A1);display:none;">📲 Instalar App en mi celular</button>
+  </div>
+  <div class="chg-pass" id="chgPass" style="margin-top:18px;background:var(--g);border-radius:12px;padding:16px;">
+   <h4>🔑 Cambiar contraseña</h4>
+   <input class="chg-inp" id="passActual" type="password" placeholder="Contraseña actual">
+   <input class="chg-inp" id="passNueva" type="password" placeholder="Nueva contraseña">
+   <input class="chg-inp" id="passConfirm" type="password" placeholder="Confirmar nueva contraseña">
+   <button class="btn-chg" onclick="cambiarPass()">Actualizar contraseña</button>
+  </div>
+ </div>
+</div>
+
+<!-- Modal receta -->
+<div class="moverlay" id="moverlay" onclick="cerrarM(event)">
+ <div class="modal">
+  <div class="mhero" id="mhero">
+   <button class="mclose" id="mcloseBtn" onclick="cerrarMbtn()">✕</button>
+   <div class="mhero-ov"><h2 id="mtit"></h2></div>
+  </div>
+  <div class="mbody">
+   <div class="nutr" id="mnutr" style="display:none"></div>
+   <div class="ad-banner" id="adModal">
+    <span class="ad-tag">ANUNCIO</span>
+    <span class="ad-txt">🥘 Recetas Nestlé — Más ideas para cocinar rico en familia</span>
+    <button class="ad-cta">Ver</button>
+   </div>
+   <div class="psel">
+    <label>🍽️ Porciones:</label>
+    <div class="pbtns2">
+     <button class="pb2" onclick="setPor(2)">2</button>
+     <button class="pb2 on" onclick="setPor(4)">4</button>
+     <button class="pb2" onclick="setPor(6)">6</button>
+     <button class="pb2" onclick="setPor(8)">8</button>
+    </div>
+    <div class="costo-t"><span>Costo est.</span><strong id="mcosto">$0</strong></div>
+   </div>
+   <div class="itit">🧄 Ingredientes</div>
+   <div class="igrid" id="ming"></div>
+   <div class="ptit">👨‍🍳 Preparación paso a paso</div>
+   <div id="mpasos"></div>
+   <button class="fav-btn" id="favBtn" onclick="toggleFav()">❤️ Guardar en Favoritos</button>
+  </div>
+ </div>
+</div>
+
+<!-- Mini modal menú -->
+<div class="mm" id="mmModal">
+ <div class="mm-box">
+  <h3>Elige una receta</h3>
+  <div class="mm-list" id="mmList"></div>
+  <button class="mm-cancel" onclick="cerrarMM()">Cancelar</button>
+ </div>
+</div>
+
+<!-- Guardar menú modal -->
+<div class="sm-ov" id="smOv">
+ <div class="sm-box">
+  <h3>💾 Guardar Menú</h3>
+  <input class="sm-inp" id="smInp" placeholder="Nombre del menú">
+  <div class="sm-btns">
+   <button class="sm-ok" onclick="confirmarGuardar()">Guardar</button>
+   <button class="sm-cancel" onclick="cerrarSM()">Cancelar</button>
+  </div>
+ </div>
+</div>
+
+<!-- MercadoPago Modal -->
+<div class="mp-ov" id="mpOv">
+ <div class="mp-box">
+  <button class="mp-close" onclick="cerrarMP()">✕</button>
+  <div id="mpForm">
+   <div class="mp-logo">
+    <div class="mp-logo-tag">mercado pago</div>
+    <span style="font-size:.78rem;color:#9E9E9E;font-weight:700">Pago 100% seguro</span>
+   </div>
+   <h3>Plan Pro — Sabores de México</h3>
+   <p>Sin anuncios + Reciclador IA + Guardar menús + Salsas + Aguas</p>
+   <!-- PLAN SELECTOR -->
+   <div style="display:flex;gap:8px;margin-bottom:14px;">
+    <div id="planMes" onclick="selPlan('mes')" style="flex:1;border-radius:12px;border:2px solid var(--r);background:var(--r);color:#fff;padding:12px 8px;text-align:center;cursor:pointer;transition:all .2s;">
+     <div style="font-size:.65rem;font-weight:900;letter-spacing:.5px;text-transform:uppercase;opacity:.8;margin-bottom:3px;">MENSUAL</div>
+     <div style="font-family:Fraunces,serif;font-size:1.5rem;font-weight:900;">$79</div>
+     <div style="font-size:.68rem;opacity:.8;">MXN / mes</div>
+    </div>
+    <div id="planVida" onclick="selPlan('vida')" style="flex:1;border-radius:12px;border:2px solid var(--g2);background:var(--w);color:var(--c);padding:12px 8px;text-align:center;cursor:pointer;transition:all .2s;position:relative;">
+     <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--o);color:var(--c);padding:2px 10px;border-radius:20px;font-size:.6rem;font-weight:900;white-space:nowrap;">🔥 MEJOR VALOR</div>
+     <div style="font-size:.65rem;font-weight:900;letter-spacing:.5px;text-transform:uppercase;opacity:.6;margin-bottom:3px;">DE POR VIDA</div>
+     <div style="font-family:Fraunces,serif;font-size:1.5rem;font-weight:900;color:var(--rd);">$349</div>
+     <div style="font-size:.68rem;opacity:.6;">MXN · pago único</div>
+    </div>
+   </div>
+   <div class="mp-sum" id="mpSumBox">
+    <div class="mp-row"><span id="mpPlanNom">Plan Pro Mensual</span><span id="mpPlanPrecio">$79.00 MXN</span></div>
+    <div class="mp-row" id="mpRenovRow"><span>Renovación</span><span>Mensual automática</span></div>
+    <div class="mp-row"><span>Total hoy</span><span id="mpTotal">$79.00 MXN</span></div>
+   </div>
+   <div class="mp-form">
+    <input class="mp-inp" type="text" id="mpNombre" placeholder="Nombre completo">
+    <input class="mp-inp" type="email" id="mpEmail" placeholder="Correo electrónico">
+    <input class="mp-inp" type="text" id="mpCard" placeholder="Número de tarjeta" maxlength="19" oninput="fmtCard(this)">
+    <div class="mp-row2">
+     <input class="mp-inp" type="text" id="mpExp" placeholder="MM/AA" maxlength="5" oninput="fmtExp(this)">
+     <input class="mp-inp" type="text" id="mpCVV" placeholder="CVV" maxlength="3">
+    </div>
+    <button class="mp-btn" onclick="procesarPago()"><span id="mpBtnTxt">🔒 Suscribirme — $79/mes</span></button>
+    <p class="mp-sec">🔒 Pago procesado por MercadoPago · SSL · PCI DSS</p>
+   </div>
+  </div>
+  <div class="mp-success" id="mpSuccess">
+   <div class="mp-success-icon">🎉</div>
+   <h3 id="mpSuccessTit">¡Suscripción activada!</h3>
+   <p id="mpSuccessMsg">Ya tienes acceso completo. Los anuncios han desaparecido. Disfruta Sabores de México Pro.</p>
+   <button onclick="cerrarMP();showToast('🇲🡽 ¡Bienvenido a Pro!')">¡A cocinar!</button>
+  </div>
+ </div>
+</div>
+
+<!-- Banner Pro sticky -->
+<div class="pro-sticky" id="proSticky">
+ <p>📢 ¿Cansado de los anuncios? <span>Pro desde $79/mes · o $349 de por vida</span></p>
+ <button onclick="abrirMP()">Activar Pro</button>
+</div>
+
+<footer>🇲🇽 Sabores de México · 100+ recetas auténticas · MXN · Powered by MercadoPago</footer>
+
+<script>
+// ══════════════════════════════════════
+// CONFIGURACIÓN
+// ══════════════════════════════════════
+var MP_ACCESS_TOKEN='APP_USR-7703517923624867-051315-0792896d938e62f91423f51d6fe16565-99792843';
+var MP_PRECIO=79;
+var MP_PLAN='mes'; // 'mes' or 'vida'
+function selPlan(p){
+ MP_PLAN=p;
+ var isMes=p==='mes';
+ var planMes=document.getElementById('planMes');
+ var planVida=document.getElementById('planVida');
+ if(planMes){planMes.style.background=isMes?'var(--r)':'var(--w)';planMes.style.color=isMes?'#fff':'var(--c)';planMes.style.borderColor=isMes?'var(--r)':'var(--g2)';}
+ if(planVida){planVida.style.background=isMes?'var(--w)':'var(--o)';planVida.style.color=isMes?'var(--c)':'var(--c)';planVida.style.borderColor=isMes?'var(--g2)':'var(--o)';}
+ if(isMes){
+  document.getElementById('mpPlanNom').textContent='Plan Pro Mensual';
+  document.getElementById('mpPlanPrecio').textContent='$79.00 MXN';
+  document.getElementById('mpTotal').textContent='$79.00 MXN';
+  document.getElementById('mpRenovRow').style.display='flex';
+  document.getElementById('mpBtnTxt').textContent='🔒 Suscribirme — $79/mes';
+ } else {
+  document.getElementById('mpPlanNom').textContent='Plan Pro De por Vida';
+  document.getElementById('mpPlanPrecio').textContent='$349.00 MXN';
+  document.getElementById('mpTotal').textContent='$349.00 MXN';
+  document.getElementById('mpRenovRow').style.display='none';
+  document.getElementById('mpBtnTxt').textContent='🔒 Pago único — $349 de por vida';
+ }
+}
+var ADMIN_EMAIL='rocaedwin2020@gmail.com';
+var ADMIN_PASS=btoa('colorysabor');
+
+// ══════════════════════════════════════
+// BASE DE DATOS — RECETAS
+// ══════════════════════════════════════
+var RECETAS=[
+ // SOPAS/ENTRADAS
+ {id:"S01",n:"Pozole Rojo",t:"Sopa/Entrada",min:120,d:"Media",c4:181,e:"🫕",desc:"Maíz cacahuazintle, cerdo y chile guajillo. El rey de las fiestas patrias.",img:"",ing:[["Maíz cacahuazintle","g",500,0.02],["Cerdo espalda","g",400,0.15],["Chile guajillo","pzas",5,9.6],["Chile ancho","pzas",2,18.0],["Cebolla","pza",1,0.02],["Ajo","dientes",4,1.0],["Orégano","cdita",1,0.03],["Tostadas","pzas",8,1.2],["Lechuga","tazas",2,3.0],["Limón","pzas",4,1.9]],pasos:[["15 min","Remoja los chiles en agua caliente 15 min. Licúa con ajo, cebolla y una taza del agua. Cuela."],["5 min","Sofríe la salsa en aceite caliente hasta que cambie de color."],["40 min","Agrega la carne troceada y 2 litros de agua. Cocina a fuego medio hasta que esté muy tierna."],["20 min","Incorpora el maíz precocido, ajusta sal y orégano. Hierve hasta que el maíz reviente."],["inmediato","Sirve con tostadas, lechuga, orégano, limón y cebolla."]]},
+ {id:"S02",n:"Caldo de Pollo",t:"Sopa/Entrada",min:60,d:"Fácil",c4:88,e:"🍲",desc:"El remedio de todos los males. Caldo clásico con verduras y hierbas de olor.",img:"",ing:[["Pechuga de pollo","g",400,0.15],["Zanahoria","pzas",2,2.28],["Papa","pzas",2,2.55],["Calabacita","pzas",2,4.05],["Cebolla","pza",0.5,0.02],["Ajo","dientes",3,1.0],["Cilantro","manojo",0.5,10.0],["Epazote","ramitas",2,1.0]],pasos:[["30 min","Pon el pollo en agua fría con cebolla, ajo y sal. Lleva a hervor, desespuma."],["20 min","Agrega zanahoria, papa, calabacita y epazote. Cocina hasta que las verduras estén tiernas."],["5 min","Retira el pollo, deshebralo y regresa al caldo. Agrega cilantro y ajusta sal."]]},
+ {id:"S03",n:"Sopa de Fideos",t:"Sopa/Entrada",min:25,d:"Fácil",c4:148,e:"🍜",desc:"El clásico de todos los días. Fideos tostados en salsa de jitomate.",img:"",ing:[["Fideo seco","g",200,0.012],["Jitomate","pzas",3,7.5],["Cebolla","pza",0.25,0.02],["Ajo","dientes",2,1.0],["Aceite","ml",30,0.045],["Caldo de pollo","ml",800,0.15]],pasos:[["5 min","Licúa jitomate con ajo y cebolla hasta salsa tersa."],["5 min","Fríe el fideo en aceite caliente hasta dorar uniformemente."],["3 min","Agrega la salsa. Deja que se consuma."],["12 min","Incorpora el caldo caliente, ajusta sal y cocina tapado a fuego bajo."]]},
+ {id:"S04",n:"Sopa de Lima",t:"Sopa/Entrada",min:45,d:"Media",c4:72,e:"🍋",desc:"Caldo yucateco aromático con lima, pollo y tortilla frita.",img:"",ing:[["Pechuga de pollo","g",300,0.15],["Lima","pzas",4,1.9],["Jitomate","pzas",2,7.5],["Cebolla","pza",0.5,0.02],["Tortillas","pzas",4,0.56],["Ajo","dientes",2,1.0]],pasos:[["20 min","Cuece y deshebra el pollo. Reserva el caldo."],["5 min","Sofríe cebolla y jitomate. Agrega jugo de lima y el caldo. Hierve 5 min."],["3 min","Fríe tortillas en tiras hasta crujientes."],["inmediato","Sirve con pollo, tiras de tortilla y rodajas de lima."]]},
+ {id:"S05",n:"Sopa de Tortilla",t:"Sopa/Entrada",min:35,d:"Fácil",c4:225,e:"🫙",desc:"Caldo de chile pasilla con tiras crujientes, crema y queso.",img:"",ing:[["Chile pasilla","pzas",3,14.4],["Jitomate","pzas",2,7.5],["Caldo de pollo","ml",1000,0.15],["Tortillas","pzas",6,0.56],["Crema ácida","g",80,0.08],["Queso fresco","g",60,0.12]],pasos:[["10 min","Tuesta y remoja los chiles. Licúa con jitomate y ajo. Cuela y sofríe."],["5 min","Agrega el caldo y hierve 5 min."],["5 min","Fríe tortillas en tiras hasta crujientes."],["inmediato","Sirve con tiras, crema y queso."]]},
+ {id:"S06",n:"Crema de Elote",t:"Sopa/Entrada",min:30,d:"Fácil",c4:81,e:"🌽",desc:"Crema suave de elote con rajas de chile poblano.",img:"",ing:[["Granos de elote","g",400,0.03],["Crema ácida","g",150,0.08],["Leche","ml",300,0.027],["Caldo de pollo","ml",300,0.15],["Mantequilla","g",30,0.12],["Chile poblano","pza",1,0.03]],pasos:[["10 min","Asa y pela el chile. Corta en rajas y sofríe con cebolla."],["5 min","Licúa el elote con leche, crema y caldo. Cuela."],["10 min","Incorpora la mezcla a las rajas. Cocina a fuego bajo hasta que espese."]]},
+ {id:"S07",n:"Sopa Tarasca",t:"Sopa/Entrada",min:40,d:"Media",c4:78,e:"🫘",desc:"Sopa michoacana de frijol con chile ancho y totopos.",img:"",ing:[["Frijol bayo cocido","g",400,0.038],["Chile ancho","pzas",2,18.0],["Jitomate","pzas",2,7.5],["Crema ácida","g",80,0.08],["Totopos","g",60,0.05],["Ajo","dientes",2,1.0]],pasos:[["10 min","Tuesta y remoja los chiles. Licúa con jitomate, ajo y cebolla."],["8 min","Sofríe la salsa. Agrega el frijol y aplasta una parte para dar cuerpo."],["8 min","Incorpora caldo hasta consistencia de sopa. Sirve con crema y totopos."]]},
+ {id:"S08",n:"Caldo Tlalpeño",t:"Sopa/Entrada",min:75,d:"Media",c4:69,e:"🍵",desc:"Caldo de pollo con chipotle, garbanzos y epazote.",img:"",ing:[["Pechuga de pollo","g",350,0.15],["Garbanzo cocido","g",200,0.035],["Chipotle en adobo","pzas",2,2.57],["Ejotes","g",100,0.025],["Zanahoria","pza",1,0.019],["Epazote","ramitas",2,1.0]],pasos:[["30 min","Cuece el pollo, deshebralo. Reserva el caldo."],["5 min","Licúa el chipotle con caldo. Agrega al caldo con garbanzos y verduras."],["15 min","Agrega el pollo y epazote. Cocina hasta que las verduras estén tiernas."]]},
+ {id:"S09",n:"Menudo Rojo",t:"Sopa/Entrada",min:180,d:"Difícil",c4:203,e:"🥣",desc:"Caldo de panza de res con chile ancho. El rey del domingo.",img:"",ing:[["Panza de res","g",600,0.15],["Chile ancho","pzas",4,18.0],["Chile guajillo","pzas",3,9.6],["Cebolla","pza",1,0.02],["Ajo","dientes",5,1.0],["Orégano","cdita",2,0.03],["Limón","pzas",4,1.9]],pasos:[["3 hr","Limpia y cuece la panza con cebolla, ajo y sal hasta que esté suave."],["15 min","Tuesta y remoja los chiles. Licúa, cuela e incorpora al caldo."],["20 min","Trocea la panza, regresa al caldo. Ajusta orégano y sal."],["inmediato","Sirve con cebolla, orégano, chile piquín y limón."]]},
+ {id:"S10",n:"Caldo de Res",t:"Sopa/Entrada",min:120,d:"Fácil",c4:151,e:"🐄",desc:"Caldo sustancioso de res con verduras de temporada.",img:"",ing:[["Chambarete de res","g",600,0.19],["Ejotes","g",100,0.025],["Elote","pzas",2,10.0],["Papa","pzas",2,2.55],["Zanahoria","pzas",2,2.28],["Chayote","pza",1,0.027],["Col","pzas",0.25,5.0],["Ajo","dientes",4,1.0]],pasos:[["10 min","Pon la carne con agua fría, ajo, cebolla y sal. Lleva a hervor y desespuma."],["60 min","Cocina a fuego medio 1 hora hasta que la carne esté tierna."],["30 min","Agrega elote en trozos, papa, zanahoria, chayote, ejotes y col. Cocina 30 min más."],["inmediato","Sirve con chile de árbol, cebolla y limón al gusto."]]},
+ // PLATOS FUERTES
+ {id:"P01",n:"Mole Poblano",t:"Plato Fuerte",min:180,d:"Difícil",c4:278,e:"🫕",desc:"La cumbre de la cocina mexicana. Más de 18 ingredientes con chocolate.",img:"",ing:[["Pollo","g",600,0.15],["Chile mulato","pzas",4,14.4],["Chile ancho","pzas",3,18.0],["Chile pasilla","pzas",3,14.4],["Chocolate de mesa","g",50,0.08],["Jitomate","pzas",2,7.5],["Plátano macho","pza",0.5,6.0],["Cacahuate","g",30,0.08],["Pasas","g",20,0.09],["Ajonjolí","g",20,0.2],["Canela","g",3,0.05],["Aceite","ml",60,0.045]],pasos:[["20 min","Tuesta todos los chiles en comal. Remójalos 20 min."],["10 min","Fríe por separado plátano, cacahuates, pasas y ajonjolí."],["10 min","Licúa todo en tandas con caldo hasta salsa muy tersa."],["30 min","Fríe el mole en aceite caliente. Agrega chocolate y caldo."],["30 min","Incorpora el pollo. Cocina a fuego bajo moviendo hasta que espese y brille."]]},
+ {id:"P02",n:"Pozole Verde",t:"Plato Fuerte",min:120,d:"Media",c4:96,e:"🌿",desc:"Maíz con salsa de pepita, tomate verde y hierbas frescas.",img:"",ing:[["Maíz cacahuazintle","g",500,0.02],["Cerdo espalda","g",400,0.15],["Tomate verde","g",300,0.017],["Chile serrano","pzas",3,0.4],["Pepita de calabaza","g",80,0.12],["Cilantro","manojo",1,10.0]],pasos:[["40 min","Cuece el cerdo con ajo y sal. Cuece el maíz hasta que reviente."],["10 min","Tuesta pepitas y licúa con tomate, chile y cilantro."],["15 min","Sofríe la salsa verde, agrega el caldo. Incorpora el maíz y la carne."]]},
+ {id:"P03",n:"Tacos de Canasta",t:"Plato Fuerte",min:45,d:"Media",c4:66,e:"🌮",desc:"Tacos sudados de frijol, chicharrón y adobo. El clásico callejero.",img:"",ing:[["Tortillas de maíz","pzas",20,0.56],["Frijol refrito","g",200,0.038],["Chicharrón","g",100,0.02],["Chile ancho","pzas",2,18.0],["Manteca de cerdo","g",60,0.15]],pasos:[["20 min","Prepara los rellenos: frijoles refritos, chicharrón guisado y adobo de cerdo."],["5 min","Pasa cada tortilla por manteca caliente para suavizarla."],["10 min","Rellena y dobla. Coloca en canasta con papel de estraza."]]},
+ {id:"P04",n:"Enchiladas Rojas",t:"Plato Fuerte",min:45,d:"Media",c4:171,e:"🌯",desc:"Tortillas bañadas en salsa guajillo con pollo, crema y queso.",img:"",ing:[["Tortillas de maíz","pzas",12,0.56],["Pechuga de pollo","g",300,0.15],["Chile guajillo","pzas",5,9.6],["Chile ancho","pzas",2,18.0],["Jitomate","pzas",2,7.5],["Crema ácida","g",100,0.08],["Queso fresco","g",100,0.12]],pasos:[["25 min","Cuece y deshebra el pollo. Tuesta, remoja y licúa los chiles con jitomate."],["5 min","Pasa las tortillas por aceite caliente."],["5 min","Rellena con pollo, enrolla y cubre con la salsa caliente."],["inmediato","Agrega crema, queso y cebolla."]]},
+ {id:"P05",n:"Chiles Rellenos",t:"Plato Fuerte",min:60,d:"Difícil",c4:133,e:"🫑",desc:"Chile poblano relleno de queso o carne, capeado en huevo esponjoso.",img:"",ing:[["Chile poblano","pzas",4,4.5],["Queso Oaxaca","g",200,0.15],["Carne molida","g",250,0.19],["Jitomate","pzas",3,7.5],["Huevo","pzas",4,3.5],["Harina","g",40,0.025]],pasos:[["15 min","Asa los chiles en la flama. Métalos en bolsa 15 min, pélalos y retira semillas."],["15 min","Sofríe la carne con cebolla, ajo y jitomate. Rellena los chiles."],["10 min","Bate claras a turrón. Incorpora yemas. Enharina el chile y capealo."],["8 min","Fríe en aceite caliente hasta dorar."]]},
+ {id:"P06",n:"Carnitas",t:"Plato Fuerte",min:120,d:"Media",c4:178,e:"🥩",desc:"Cerdo confitado en su grasa al estilo Michoacán.",img:"",ing:[["Pierna de cerdo","g",800,0.15],["Manteca de cerdo","g",200,0.15],["Naranja","pzas",2,5.0],["Leche condensada","ml",100,0.045],["Ajo","dientes",5,1.0],["Tortillas","pzas",16,0.56]],pasos:[["2 hr","Cocina la carne con manteca, naranja, leche condensada, ajo y sal a fuego bajo 2 horas."],["20 min","Sube el fuego para dorar en su propia grasa."],["inmediato","Desmenuza y sirve en tacos con cilantro, cebolla y limón."]]},
+ {id:"P07",n:"Camarones a la Diabla",t:"Plato Fuerte",min:30,d:"Fácil",c4:173,e:"🦐",desc:"Camarones en salsa roja de chile guajillo y chile de árbol.",img:"",ing:[["Camarón mediano limpio","g",500,0.22],["Chile guajillo","pzas",4,9.6],["Chile de árbol","pzas",6,0.3],["Jitomate","pzas",2,7.5],["Ajo","dientes",3,1.0],["Mantequilla","g",40,0.12]],pasos:[["10 min","Marina los camarones con limón y sal. Remoja los chiles en agua caliente."],["5 min","Licúa los chiles con jitomate, ajo y cebolla. Cuela."],["3 min","Saltea los camarones en mantequilla 2 min por lado. Retira."],["8 min","Fríe la salsa diabla hasta espesar. Regresa los camarones y sirve."]]},
+ {id:"P08",n:"Tinga de Pollo",t:"Plato Fuerte",min:40,d:"Fácil",c4:107,e:"🌮",desc:"Pollo deshebrado en salsa de jitomate y chipotle.",img:"",ing:[["Pechuga de pollo","g",500,0.15],["Jitomate","pzas",3,7.5],["Chipotle en adobo","pzas",2,2.57],["Cebolla","pza",1,0.02],["Ajo","dientes",3,1.0],["Aceite","ml",30,0.045]],pasos:[["25 min","Cuece el pollo con cebolla, ajo y sal. Deshebralo."],["10 min","Licúa jitomate, chipotle y ajo. Sofríe con cebolla en anillos."],["8 min","Agrega el pollo a la salsa y cocina 5 min."]]},
+ {id:"P09",n:"Cochinita Pibil",t:"Plato Fuerte",min:180,d:"Difícil",c4:150,e:"🫙",desc:"Cerdo marinado en achiote y naranja agria, cocido lento.",img:"",ing:[["Pierna de cerdo","g",700,0.15],["Pasta de achiote","g",80,0.2],["Naranja agria","pzas",3,5.0],["Ajo","dientes",5,1.0],["Cebolla morada","pza",1,0.02],["Tortillas","pzas",16,0.56]],pasos:[["12 hr","Marina la carne en achiote, naranja agria, ajo y sal. Toda la noche."],["3 hr","Envuelve en hojas de plátano. Hornea a 180°C 3 horas."],["inmediato","Deshebra y sirve con cebolla morada curtida y habanero."]]},
+ {id:"P10",n:"Birria de Res",t:"Plato Fuerte",min:240,d:"Difícil",c4:348,e:"🫕",desc:"Res en adobo de chiles secos. El taco de moda con consomé.",img:"",ing:[["Chambarete de res","g",800,0.19],["Chile guajillo","pzas",6,9.6],["Chile ancho","pzas",4,18.0],["Chile pasilla","pzas",2,14.4],["Jitomate","pzas",3,7.5],["Ajo","dientes",6,1.0],["Tortillas","pzas",16,0.56]],pasos:[["20 min","Tuesta y remoja los chiles. Licúa con jitomate, ajo, cebolla y especias."],["4 hr","Marina la carne y cuece en olla con el adobo a fuego bajo."],["inmediato","Sirve en tortillas tostadas en la grasa del consomé con cebolla y cilantro."]]},
+ {id:"P11",n:"Tacos de Suadero",t:"Plato Fuerte",min:90,d:"Media",c4:136,e:"🌮",desc:"Suadero de res dorado en su propia grasa. El taco más querido de la CDMX.",img:"",ing:[["Suadero de res","g",600,0.19],["Manteca","g",80,0.045],["Tortillas de maíz","pzas",16,0.56],["Cebolla","pza",0.5,0.02],["Cilantro","manojo",0.5,10.0],["Salsa verde","ml",150,0.03]],pasos:[["60 min","Cuece el suadero en agua con sal y ajo hasta que esté tierno."],["20 min","Fría el suadero en su grasa a fuego alto hasta dorar y crocante."],["inmediato","Pica y sirve en tortillas con cilantro, cebolla y salsa verde."]]},
+ {id:"P12",n:"Tacos al Pastor",t:"Plato Fuerte",min:60,d:"Media",c4:198,e:"🌮",desc:"Cerdo marinado en achiote y chiles con piña. El rey de los tacos.",img:"",ing:[["Lomo de cerdo","g",600,0.15],["Chile guajillo","pzas",4,9.6],["Chile ancho","pzas",2,18.0],["Pasta de achiote","g",40,0.2],["Piña","rebanadas",4,3.0],["Tortillas","pzas",16,0.56],["Cilantro","manojo",0.5,10.0],["Cebolla","pza",0.5,0.02]],pasos:[["2 hr","Marina el cerdo en la salsa de chiles con achiote y cebolla. Al menos 2 horas."],["15 min","Asa en comal o plancha caliente por ambos lados."],["5 min","Pica y sirve con piña, cilantro, cebolla y salsa al gusto."]]},
+ {id:"P13",n:"Tacos de Birria",t:"Plato Fuerte",min:240,d:"Difícil",c4:291,e:"🌮",desc:"Tacos de birria en tortilla dorada en el consomé, con consomé para dipping.",img:"",ing:[["Chambarete de res","g",700,0.19],["Chile guajillo","pzas",5,9.6],["Chile ancho","pzas",3,18.0],["Jitomate","pzas",2,7.5],["Tortillas de maíz","pzas",16,0.56],["Queso Oaxaca","g",150,0.15],["Cebolla","pza",1,0.02],["Cilantro","manojo",1,10.0]],pasos:[["4 hr","Prepara la birria: cuece la carne en adobo de chiles secos a fuego bajo."],["5 min","Deshebra la carne. Reserva el consomé."],["5 min","Sumerge las tortillas en el consomé y dóralas en comal con queso y birria."],["inmediato","Sirve con consomé caliente para dipping, cebolla y cilantro."]]},
+ {id:"P14",n:"Albóndigas en Caldillo",t:"Plato Fuerte",min:60,d:"Media",c4:129,e:"🍲",desc:"Albóndigas de carne molida en caldillo de jitomate con arroz.",img:"",ing:[["Carne molida de res","g",400,0.19],["Arroz crudo","g",40,0.022],["Huevo","pzas",1,3.5],["Jitomate","pzas",3,7.5],["Zanahoria","pzas",2,2.28],["Papa","pzas",2,2.55],["Caldo","ml",800,0.02],["Menta","ramitas",3,0.03]],pasos:[["10 min","Mezcla la carne con arroz crudo, huevo, sal y menta. Forma albóndigas del tamaño de una nuez."],["10 min","Licúa el jitomate con ajo y cebolla. Sofríe hasta que cambie de color."],["30 min","Agrega el caldo, zanahoria y papa. Cuando hierva, mete las albóndigas con cuidado."],["10 min","Cocina tapado a fuego bajo hasta que las albóndigas estén bien cocidas."]]},
+ {id:"P15",n:"Pasta a la Boloñesa",t:"Plato Fuerte",min:50,d:"Fácil",c4:90,e:"🍝",desc:"Pasta con salsa de carne molida estilo mexicano con jitomate y especias.",img:"",ing:[["Pasta espagueti","g",300,0.012],["Carne molida de res","g",300,0.19],["Jitomate","pzas",3,7.5],["Cebolla","pza",0.5,0.02],["Ajo","dientes",3,1.0],["Orégano","cdita",1,0.03],["Aceite de oliva","ml",30,0.12]],pasos:[["10 min","Sofríe la carne con ajo y cebolla hasta dorar. Licúa el jitomate."],["20 min","Agrega el jitomate a la carne con orégano, sal y pimienta. Cocina a fuego bajo."],["10 min","Cuece la pasta al dente en agua con sal. Drena."],["inmediato","Mezcla la pasta con la salsa. Sirve con queso rallado."]]},
+ {id:"P16",n:"Pasta con Crema",t:"Plato Fuerte",min:30,d:"Fácil",c4:49,e:"🍝",desc:"Pasta en salsa cremosa con chile poblano y queso.",img:"",ing:[["Pasta corta","g",300,0.012],["Crema ácida","g",200,0.08],["Chile poblano","pzas",2,4.5],["Queso manchego","g",100,0.15],["Ajo","dientes",2,1.0],["Mantequilla","g",30,0.12]],pasos:[["5 min","Asa y pela los chiles. Corta en rajas."],["5 min","Sofríe ajo en mantequilla. Agrega las rajas y la crema a fuego bajo."],["10 min","Cuece la pasta al dente. Mezcla con la salsa de crema."],["inmediato","Sirve cubierta con queso rallado y más rajas."]]},
+ {id:"P17",n:"Hamburguesa Casera",t:"Plato Fuerte",min:30,d:"Fácil",c4:128,e:"🍔",desc:"Hamburguesa jugosa con carne molida, tocino y guacamole.",img:"",ing:[["Carne molida de res","g",500,0.19],["Pan de hamburguesa","pzas",4,4.5],["Tocino","g",100,0.12],["Queso americano","rebanadas",4,0.15],["Aguacate","pza",1,0.075],["Jitomate","pza",1,0.03],["Lechuga","hojas",4,0.5]],pasos:[["3 min","Mezcla la carne con sal, pimienta y ajo en polvo. Forma 4 hamburguesas de 120g."],["6 min","Cocina en plancha o comal caliente 3 min por lado. Agrega queso y cubre."],["3 min","Fríe el tocino hasta crujiente. Prepara el guacamole."],["inmediato","Arma: pan, lechuga, jitomate, hamburguesa, tocino, guacamole. Sirve con papas."]]},
+ {id:"P18",n:"Hot Dogs Estilo México",t:"Plato Fuerte",min:20,d:"Fácil",c4:63,e:"🌭",desc:"Salchichas con tocino, jalapeños, queso amarillo y mayonesa.",img:"",ing:[["Salchichas de puerco","pzas",8,0.13],["Tocino","g",100,0.12],["Pan para hot dog","pzas",8,2.5],["Queso amarillo","g",80,0.15],["Jalapeños en vinagre","g",60,0.021],["Mayonesa","g",80,0.17],["Mostaza","g",40,0.04],["Cátsup","g",60,0.02]],pasos:[["5 min","Enrolla cada salchicha con tocino y asegura con palillo."],["8 min","Asa en comal o parrilla hasta que el tocino esté dorado."],["inmediato","Coloca en el pan. Agrega queso, jalapeño, mayonesa, mostaza y cátsup."]]},
+ {id:"P19",n:"Cóctel de Camarón",t:"Plato Fuerte",min:30,d:"Fácil",c4:194,e:"🍤",desc:"Camarones en salsa clamato con aguacate y limón. Playa en tu mesa.",img:"",ing:[["Camarón mediano cocido","g",400,0.22],["Clamato","ml",400,0.03],["Aguacate","pzas",2,30.0],["Pepino","pzas",1,10.0],["Cebolla morada","pza",0.5,0.02],["Jitomate","pzas",2,7.5],["Limón","pzas",4,1.9],["Salsa Valentina","ml",30,0.03]],pasos:[["10 min","Cuece los camarones con sal y limón si los tienes crudos. Enfría."],["10 min","Pica pepino, jitomate, cebolla y aguacate en cubos pequeños."],["inmediato","Mezcla el clamato con jugo de limón y salsa. Agrega los camarones y verduras. Sirve en vaso con tostadas."]]},
+ {id:"P20",n:"Pescado Empanizado",t:"Plato Fuerte",min:25,d:"Fácil",c4:75,e:"🐟",desc:"Filete de pescado crujiente con ensalada de col y limón.",img:"",ing:[["Filete de tilapia","g",500,0.1],["Huevo","pzas",2,3.5],["Pan molido","g",100,0.025],["Harina","g",50,0.025],["Limón","pzas",3,1.9],["Aceite vegetal","ml",150,0.045],["Col","g",150,0.015]],pasos:[["5 min","Sazona el pescado con sal, pimienta y limón. Enharina, pasa por huevo y cubre con pan molido."],["8 min","Fríe en aceite caliente 4 min por lado hasta dorar."],["inmediato","Sirve con ensalada de col, limón y aderezo de mayonesa con chipotle."]]},
+ {id:"P21",n:"Lengua en Salsa",t:"Plato Fuerte",min:180,d:"Media",c4:172,e:"🥩",desc:"Lengua de res en salsa verde o roja. Clásico de las cocinas económicas.",img:"",ing:[["Lengua de res","g",800,0.19],["Tomate verde","g",300,0.017],["Chile serrano","pzas",3,0.4],["Cebolla","pza",1,0.02],["Ajo","dientes",5,1.0],["Tortillas","pzas",16,0.56]],pasos:[["2 hr","Cuece la lengua con sal, ajo y cebolla en olla de presión o 2-3 horas normal."],["10 min","Pela y rebana la lengua. Licúa tomates con chile y ajo."],["15 min","Sofríe la salsa. Agrega la lengua rebanada y cocina 10 min a fuego bajo."],["inmediato","Sirve en tortillas o con arroz y frijoles."]]},
+ {id:"P22",n:"Enchiladas Verdes",t:"Plato Fuerte",min:45,d:"Media",c4:75,e:"🌿",desc:"Tortillas en salsa verde cremosa con pollo y crema.",img:"",ing:[["Tortillas de maíz","pzas",12,0.56],["Pechuga cocida deshebrada","g",300,0.15],["Tomate verde","g",300,0.017],["Chile serrano","pzas",2,0.4],["Crema ácida","g",100,0.08],["Queso fresco","g",80,0.12]],pasos:[["10 min","Cuece tomates y chiles. Licúa con cebolla, ajo y cilantro. Sofríe la salsa."],["5 min","Calienta las tortillas en aceite."],["5 min","Rellena con el pollo, enrolla y baña con la salsa verde."],["inmediato","Decora con crema y queso fresco."]]},
+ {id:"P23",n:"Enchiladas Suizas",t:"Plato Fuerte",min:45,d:"Media",c4:96,e:"🫙",desc:"Enchiladas con salsa verde, crema, queso gratinado al horno.",img:"",ing:[["Tortillas de maíz","pzas",12,0.56],["Pechuga cocida","g",300,0.15],["Tomate verde","g",250,0.017],["Crema ácida","g",200,0.08],["Queso manchego","g",150,0.15],["Ajo","dientes",2,1.0]],pasos:[["10 min","Prepara la salsa verde cremosa: licúa tomates con chile, crema y caldo."],["5 min","Calienta las tortillas. Rellena con pollo, enrolla y coloca en refractario."],["10 min","Cubre con la salsa y queso manchego rallado."],["15 min","Hornea a 200°C hasta que el queso esté dorado y burbujeante."]]},
+ {id:"P24",n:"Camarones al Ajillo",t:"Plato Fuerte",min:20,d:"Fácil",c4:137,e:"🦐",desc:"Camarones con mucho ajo, mantequilla y chile de árbol.",img:"",ing:[["Camarón grande limpio","g",500,0.22],["Ajo","dientes",8,1.0],["Mantequilla","g",60,0.12],["Chile de árbol","pzas",4,0.3],["Vino blanco","ml",60,0.04],["Limón","pzas",2,1.9],["Perejil","manojo",0.5,8.0]],pasos:[["3 min","Lamina el ajo y fríe en mantequilla a fuego medio hasta dorar. Agrega el chile."],["3 min","Agrega los camarones y sube el fuego. Saltea 2 min."],["2 min","Vierte el vino blanco, deja reducir 1 min."],["inmediato","Exprime limón, agrega perejil picado y sirve con pan o arroz."]]},
+ {id:"P25",n:"Milanesa de Res",t:"Plato Fuerte",min:25,d:"Fácil",c4:140,e:"🥩",desc:"Filete empanizado y frito. Con arroz y ensalada.",img:"",ing:[["Filete de res","g",500,0.24],["Huevo","pzas",2,3.5],["Pan molido","g",100,0.025],["Limón","pzas",2,1.9],["Aceite vegetal","ml",150,0.045]],pasos:[["5 min","Aplana los filetes. Sazona con sal, pimienta y limón."],["5 min","Pasa por huevo y luego por pan molido."],["8 min","Fríe en aceite caliente 3-4 min por lado hasta dorar."]]},
+ {id:"P26",n:"Picadillo",t:"Plato Fuerte",min:35,d:"Fácil",c4:103,e:"🍲",desc:"Carne molida guisada con papa, zanahoria y jitomate.",img:"",ing:[["Carne molida de res","g",400,0.19],["Papa","pzas",2,2.55],["Zanahoria","pzas",2,2.28],["Jitomate","pzas",2,7.5],["Cebolla","pza",0.5,0.02],["Ajo","dientes",2,1.0]],pasos:[["5 min","Sofríe la cebolla y ajo. Agrega la carne y cocina hasta dorar."],["10 min","Licúa el jitomate y agrega con papa y zanahoria en cubos."],["15 min","Cocina tapado hasta que las verduras estén suaves."]]},
+ {id:"P27",n:"Frijoles de Olla",t:"Plato Fuerte",min:120,d:"Fácil",c4:34,e:"🫘",desc:"Frijoles negros o bayos cocidos con epazote y tocino. La base de todo.",img:"",ing:[["Frijol negro o bayo","g",500,0.038],["Epazote","ramitas",3,1.0],["Tocino","g",80,0.12],["Cebolla","pza",0.5,0.02],["Ajo","dientes",2,1.0],["Chile serrano","pzas",2,0.4]],pasos:[["10 min","Remoja el frijol de un día para otro o usa olla de presión."],["90 min","Cuece con cebolla, ajo, chile y tocino. Agrega epazote al final."],["inmediato","Sirve con queso fresco, crema y tortillas calientes."]]},
+ {id:"P28",n:"Arroz con Pollo",t:"Plato Fuerte",min:50,d:"Fácil",c4:87,e:"🍚",desc:"Arroz rojo guisado con piezas de pollo y verduras.",img:"",ing:[["Pollo en piezas","g",500,0.12],["Arroz largo","g",200,0.022],["Jitomate","pzas",2,7.5],["Zanahoria","pzas",1,2.28],["Chícharo","g",80,0.04],["Ajo","dientes",2,1.0]],pasos:[["5 min","Dora las piezas de pollo en aceite. Retira y reserva."],["5 min","Fríe el arroz crudo hasta dorar. Agrega la salsa de jitomate."],["30 min","Agrega el caldo, el pollo, zanahoria y chícharo. Cocina tapado a fuego bajo."]]},
+ {id:"P29",n:"Pollo en Salsa Verde",t:"Plato Fuerte",min:45,d:"Fácil",c4:86,e:"🍗",desc:"Pollo guisado en salsa de tomate verde y chile serrano.",img:"",ing:[["Pollo en piezas","g",600,0.12],["Tomate verde","g",300,0.017],["Chile serrano","pzas",3,0.4],["Cebolla","pza",0.5,0.02],["Ajo","dientes",3,1.0],["Cilantro","manojo",0.5,10.0]],pasos:[["10 min","Cuece los tomates con chile y ajo. Licúa con cebolla."],["5 min","Dora las piezas de pollo en aceite."],["25 min","Agrega la salsa verde al pollo. Cocina tapado a fuego bajo."]]},
+ {id:"P30",n:"Tacos Dorados",t:"Plato Fuerte",min:40,d:"Fácil",c4:99,e:"🌮",desc:"Tacos fritos rellenos de papa o pollo, con lechuga, crema y salsa.",img:"",ing:[["Tortillas de maíz","pzas",12,0.56],["Papa cocida machacada","g",300,0.19],["Aceite vegetal","ml",200,0.045],["Lechuga","tazas",3,3.0],["Crema ácida","g",100,0.08],["Queso fresco","g",80,0.12]],pasos:[["5 min","Rellena las tortillas con papa sazonada. Enrolla y asegura con palillo."],["8 min","Fríe en aceite caliente hasta que estén dorados y crujientes."],["inmediato","Sirve con lechuga rallada, crema, queso y salsa roja o verde."]]},
+ // DESAYUNOS
+ {id:"D01",n:"Chilaquiles Rojos",t:"Desayuno",min:30,d:"Fácil",c4:74,e:"🌶️",desc:"Totopos en salsa roja con crema, queso y pollo opcional.",img:"",ing:[["Totopos","g",150,0.05],["Jitomate","pzas",3,7.5],["Chile guajillo","pzas",3,9.6],["Crema ácida","g",80,0.08],["Queso fresco","g",60,0.12],["Aceite","ml",30,0.045]],pasos:[["10 min","Licúa jitomate, chile guajillo rehidratado, ajo y cebolla. Sofríe la salsa."],["3 min","Agrega los totopos a la salsa caliente y mezcla rápidamente."],["inmediato","Sirve de inmediato con crema, queso y cebolla."]]},
+ {id:"D02",n:"Chilaquiles Verdes",t:"Desayuno",min:30,d:"Fácil",c4:33,e:"🌿",desc:"Totopos en salsa verde con crema, queso y huevo.",img:"",ing:[["Totopos","g",150,0.05],["Tomate verde","g",250,0.017],["Chile serrano","pzas",2,0.4],["Crema ácida","g",80,0.08],["Queso fresco","g",60,0.12],["Huevo","pzas",2,3.5]],pasos:[["10 min","Hierve los tomates con chile y cebolla. Licúa. Sofríe en aceite."],["3 min","Agrega los totopos y mezcla rápido."],["inmediato","Sirve con huevos estrellados, crema y queso."]]},
+ {id:"D03",n:"Huevos Rancheros",t:"Desayuno",min:20,d:"Fácil",c4:32,e:"🍳",desc:"Huevos fritos sobre tortilla con salsa de jitomate y chile.",img:"",ing:[["Huevo","pzas",4,3.5],["Jitomate","pzas",2,7.5],["Chile serrano","pzas",2,0.4],["Tortillas","pzas",4,0.56],["Cebolla","pza",0.25,0.02]],pasos:[["5 min","Licúa el jitomate con chile, ajo y cebolla. Sofríe."],["5 min","Calienta las tortillas. Fríe los huevos al gusto."],["inmediato","Coloca el huevo sobre la tortilla y cubre con la salsa."]]},
+ {id:"D04",n:"Molletes",t:"Desayuno",min:15,d:"Fácil",c4:70,e:"🥖",desc:"Bolillo con frijoles y queso derretido, con pico de gallo.",img:"",ing:[["Pan bolillo","pzas",4,10.0],["Frijoles refritos","g",200,0.038],["Queso manchego","g",150,0.15],["Jitomate","pza",1,0.03],["Chile serrano","pza",1,0.02]],pasos:[["3 min","Parte los bolillos. Úntales frijoles refritos calientes."],["5 min","Cubre con queso y gratina hasta que el queso derrita."],["inmediato","Sirve con pico de gallo de jitomate, cebolla, chile y cilantro."]]},
+ {id:"D05",n:"Huevos a la Mexicana",t:"Desayuno",min:20,d:"Fácil",c4:32,e:"🍳",desc:"Huevos revueltos con jitomate, cebolla y chile serrano.",img:"",ing:[["Huevo","pzas",4,3.5],["Jitomate","pzas",2,7.5],["Cebolla blanca","pza",0.5,0.02],["Chile serrano","pzas",2,0.4],["Aceite","ml",20,0.045],["Cilantro","ramitas",4,0.2]],pasos:[["3 min","Pica finamente el jitomate, cebolla y chile. Bate los huevos."],["3 min","Sofríe la cebolla en aceite. Agrega jitomate y chile 2 min."],["3 min","Vierte los huevos y mueve hasta que cuajen. Agrega cilantro."]]},
+ {id:"D06",n:"Quesadillas de Queso",t:"Desayuno",min:15,d:"Fácil",c4:41,e:"🧀",desc:"Tortillas de maíz con queso Oaxaca derretido al comal.",img:"",ing:[["Tortillas de maíz","pzas",8,0.56],["Queso Oaxaca","g",200,0.15],["Epazote","ramitas",4,1.0],["Salsa verde","ml",100,0.03]],pasos:[["2 min","Calienta el comal. Coloca la tortilla y añade el queso deshebrado."],["3 min","Agrega epazote fresco. Dobla cuando el queso empiece a derretirse."],["2 min","Voltea y dora el otro lado. Sirve con salsa verde."]]},
+ {id:"D07",n:"Hotcakes con Piloncillo",t:"Desayuno",min:25,d:"Fácil",c4:26,e:"🥞",desc:"Hotcakes esponjosos con miel de piloncillo y mantequilla.",img:"",ing:[["Harina","g",200,0.025],["Huevo","pzas",2,3.5],["Leche","ml",250,0.027],["Polvo para hornear","cdita",2,0.03],["Mantequilla","g",30,0.12],["Piloncillo","g",100,0.035]],pasos:[["5 min","Mezcla harina, polvo y sal. Bate huevos con leche y mantequilla."],["2 min","Une los ingredientes. No mezcles de más."],["15 min","Vierte en comal caliente. Voltea cuando aparezcan burbujas."],["5 min","Para la miel: disuelve el piloncillo en agua con canela hasta obtener jarabe."]]},
+ {id:"D08",n:"Huevos Divorciados",t:"Desayuno",min:20,d:"Fácil",c4:36,e:"🍳",desc:"Huevos fritos con salsa roja y verde separadas por arroz.",img:"",ing:[["Huevo","pzas",4,3.5],["Jitomate","pzas",2,7.5],["Tomate verde","g",150,0.017],["Chile serrano","pzas",2,0.4],["Aceite","ml",30,0.045],["Arroz cocido","g",100,0.022]],pasos:[["5 min","Prepara dos salsas: roja (jitomate+chile) y verde (tomate verde+chile). Sofríe cada una."],["5 min","Fríe dos huevos por persona."],["inmediato","Baña un huevo con la salsa roja y el otro con la verde. El arroz va en medio."]]},
+ {id:"D09",n:"Enfrijoladas",t:"Desayuno",min:25,d:"Fácil",c4:33,e:"🫘",desc:"Tortillas bañadas en salsa de frijol negro con queso y crema.",img:"",ing:[["Tortillas de maíz","pzas",8,0.56],["Frijol negro cocido","g",300,0.038],["Queso fresco","g",80,0.12],["Crema ácida","g",80,0.08],["Ajo","dientes",1,1.0]],pasos:[["5 min","Licúa el frijol con ajo, cebolla y sal. Calienta en sartén."],["3 min","Pasa las tortillas por la salsa de frijol."],["inmediato","Dobla en cuartos. Sirve con crema y queso."]]},
+ {id:"D10",n:"Machaca con Huevo",t:"Desayuno",min:25,d:"Fácil",c4:77,e:"🍳",desc:"Carne seca norteña guisada con huevo, jitomate y chile.",img:"",ing:[["Machaca de res","g",200,0.19],["Huevo","pzas",4,3.5],["Jitomate","pzas",2,7.5],["Cebolla blanca","pza",0.5,0.02],["Chile serrano","pzas",2,0.4],["Tortillas de harina","pzas",8,1.2]],pasos:[["5 min","Pica jitomate, cebolla y chile. Bate los huevos."],["5 min","Sofríe la cebolla y chile. Agrega la machaca y fríe 3 min."],["5 min","Agrega jitomate 2 min. Vierte los huevos y mueve hasta que cuajen."]]},
+ {id:"D11",n:"Torta de Jamón",t:"Desayuno",min:15,d:"Fácil",c4:76,e:"🥪",desc:"Telera con jamón, frijoles, aguacate y chile jalapeño.",img:"",ing:[["Telera o bolillo","pzas",4,10.0],["Jamón de pierna","g",200,0.13],["Frijoles refritos","g",150,0.038],["Aguacate","pza",1,0.075],["Chile jalapeño en vinagre","pzas",4,1.05]],pasos:[["3 min","Parte el bolillo. Úntale frijoles refritos calientes."],["2 min","Agrega el jamón, aguacate en rebanadas y chile jalapeño."],["inmediato","Cierra y sirve. Opcional: calienta en comal para que quede crujiente."]]},
+ {id:"D12",n:"Sincronizadas",t:"Desayuno",min:15,d:"Fácil",c4:68,e:"🫓",desc:"Dos tortillas de harina con jamón y queso, doradas al comal.",img:"",ing:[["Tortillas de harina","pzas",8,1.2],["Jamón de pierna","g",200,0.13],["Queso manchego","g",200,0.15],["Salsa","ml",80,0.03]],pasos:[["2 min","Coloca una tortilla en el comal caliente. Añade jamón y queso."],["3 min","Cubre con otra tortilla. Dora 2-3 min hasta que el queso derrita."],["2 min","Voltea y dora el otro lado. Corta en triángulos."]]},
+ {id:"D13",n:"Avena con Piloncillo",t:"Desayuno",min:15,d:"Fácil",c4:28,e:"🥣",desc:"Avena cremosa cocida con canela, piloncillo y leche.",img:"",ing:[["Avena en hojuelas","g",200,0.025],["Leche","ml",500,0.027],["Piloncillo","g",60,0.035],["Canela en raja","pza",1,1.5],["Plátano","pzas",2,3.0]],pasos:[["2 min","Hierve la leche con la canela y el piloncillo hasta que se disuelva."],["8 min","Agrega la avena. Cocina a fuego bajo moviendo hasta que espese."],["inmediato","Sirve con plátano en rebanadas."]]},
+ {id:"D14",n:"Esquites de Desayuno",t:"Desayuno",min:20,d:"Fácil",c4:47,e:"🌽",desc:"Granos de elote con crema, queso, chile y limón.",img:"",ing:[["Granos de elote cocido","g",400,0.03],["Crema ácida","g",100,0.08],["Queso cotija","g",80,0.12],["Chile piquín","cdita",2,0.02],["Limón","pzas",4,1.9],["Mayonesa","g",60,0.17]],pasos:[["5 min","Calienta los granos de elote en una olla o comal."],["3 min","En vasos coloca el elote. Agrega mayonesa, crema y queso cotija."],["inmediato","Exprime limón y espolvorea chile piquín al gusto."]]},
+ {id:"D15",n:"Pan Francés con Piloncillo",t:"Desayuno",min:20,d:"Fácil",c4:31,e:"🍞",desc:"Rebanadas de pan bañadas en huevo y canela, con piloncillo.",img:"",ing:[["Pan de caja","rebanadas",8,1.5],["Huevo","pzas",3,3.5],["Leche","ml",100,0.027],["Canela molida","cdita",1,0.05],["Mantequilla","g",30,0.12],["Piloncillo","g",60,0.035]],pasos:[["3 min","Bate los huevos con la leche, canela y vainilla."],["8 min","Calienta la mantequilla. Remoja cada rebanada 30 seg y fríe hasta dorar."],["inmediato","Sirve caliente espolvoreado con piloncillo rallado."]]},
+ // DIETA/LIGHT
+ {id:"L01",n:"Caldo Tlalpeño Light",t:"Dieta/Light",min:60,d:"Fácil",c4:67,cals:180,prot:22,carbs:15,grasa:4,e:"🍵",desc:"Caldo de pollo con chipotle y garbanzos. 180 kcal/porción.",img:"",ing:[["Pechuga sin piel","g",350,0.15],["Garbanzo cocido","g",200,0.035],["Chipotle sin adobo","pza",1,2.57],["Ejotes","g",100,0.025],["Zanahoria","pza",1,0.019],["Epazote","ramitas",2,1.0]],pasos:[["30 min","Cuece el pollo sin piel y deshébralo. Usa el caldo desgrasado."],["5 min","Licúa el chipotle con caldo. Agrega al caldo con garbanzos y verduras."],["15 min","Agrega el pollo y epazote. Hierve hasta que las verduras estén tiernas."]]},
+ {id:"L02",n:"Tinga Fit",t:"Dieta/Light",min:35,d:"Fácil",c4:107,cals:210,prot:28,carbs:12,grasa:6,e:"🌿",desc:"Tinga sin aceite con espinaca. 210 kcal, alto en proteína.",img:"",ing:[["Pechuga de pollo","g",500,0.15],["Jitomate","pzas",3,7.5],["Chipotle","pza",1,2.57],["Espinaca baby","g",80,0.04],["Lechuga romana","hojas",8,0.5]],pasos:[["20 min","Cuece el pollo y deshebralo."],["8 min","Licúa jitomate y chipotle sin aceite. Sofríe en sartén antiadherente."],["5 min","Agrega el pollo y espinaca. Sirve sobre hojas de lechuga."]]},
+ {id:"L03",n:"Sopa de Verduras",t:"Dieta/Light",min:30,d:"Fácil",c4:15,cals:95,prot:5,carbs:18,grasa:2,e:"🥦",desc:"Caldo de chayote, calabaza y epazote. Solo 95 kcal.",img:"",ing:[["Chayote","pza",1,0.027],["Calabacita","pzas",2,4.05],["Ejotes","g",100,0.025],["Jitomate","pza",1,0.03],["Epazote","ramitas",2,1.0],["Chile serrano","pza",1,0.02]],pasos:[["5 min","Sofríe cebolla y ajo sin aceite. Agrega el jitomate."],["5 min","Incorpora el caldo y lleva a hervor."],["15 min","Agrega todas las verduras y epazote. Cocina hasta que estén tiernas."]]},
+ {id:"L04",n:"Guacamole Proteico",t:"Dieta/Light",min:10,d:"Fácil",c4:89,cals:160,prot:8,carbs:9,grasa:12,e:"🥑",desc:"Guacamole clásico con atún. Snack saludable 160 kcal.",img:"",ing:[["Aguacate maduro","pzas",2,30.0],["Atún en agua","g",140,0.17857142857142858],["Jitomate","pza",1,0.03],["Cebolla","pza",0.25,0.02],["Chile serrano","pza",1,0.02],["Limón","pzas",2,1.9]],pasos:[["3 min","Machaca el aguacate con limón y sal."],["2 min","Agrega el atún drenado, jitomate, cebolla y chile."],["inmediato","Sirve con jícama o pepino en lugar de tostadas."]]},
+ {id:"L05",n:"Pozole Verde Light",t:"Dieta/Light",min:90,d:"Media",c4:109,cals:240,prot:25,carbs:22,grasa:5,e:"🌿",desc:"Pozole con pechuga en lugar de cerdo. 240 kcal/porción.",img:"",ing:[["Pechuga sin piel","g",500,0.15],["Maíz cacahuazintle","g",300,0.02],["Tomate verde","g",250,0.017],["Pepita de calabaza","g",40,0.12],["Cilantro","manojo",1,10.0],["Lechuga","tazas",3,3.0]],pasos:[["30 min","Cuece la pechuga sin piel. Deshebrala. Usa el caldo desgrasado."],["10 min","Tuesta pepitas y licúa con tomate verde y cilantro."],["15 min","Sofríe la salsa, agrega el caldo. Incorpora el pollo y el maíz."]]},
+ {id:"L06",n:"Enchiladas al Horno",t:"Dieta/Light",min:40,d:"Media",c4:65,cals:285,prot:24,carbs:28,grasa:8,e:"🫙",desc:"Sin freír, con yogur griego en lugar de crema. 285 kcal.",img:"",ing:[["Tortillas de maíz","pzas",8,0.56],["Pechuga cocida deshebrada","g",300,0.15],["Tomate verde","g",300,0.017],["Yogur griego natural","g",100,0.065],["Queso panela","g",80,0.055]],pasos:[["10 min","Hierve los tomates con chile y cebolla. Licúa hasta salsa verde."],["5 min","Calienta las tortillas en comal seco."],["5 min","Rellena con pollo, enrolla y coloca en refractario. Cubre con la salsa."],["15 min","Hornea a 180°C 15 min. Agrega yogur griego y queso panela."]]},
+ {id:"L07",n:"Ensalada César",t:"Dieta/Light",min:20,d:"Fácil",c4:52,cals:195,prot:12,carbs:10,grasa:14,e:"🥗",desc:"Lechuga romana con aderezo César casero y crotones.",img:"",ing:[["Lechuga romana","pzas",2,8.0],["Limón","pzas",2,1.9],["Ajo","dientes",2,1.0],["Mayonesa","g",60,0.17],["Queso cotija rallado","g",50,0.12],["Pan bolillo","pzas",1,10.0],["Aceite de oliva","ml",30,0.12],["Salsa inglesa","cdas",2,0.03]],pasos:[["5 min","Para el aderezo: mezcla mayonesa, limón, ajo machacado, salsa inglesa y sal."],["5 min","Corta el pan en cubitos y tuesta en aceite hasta crocantes."],["inmediato","Mezcla la lechuga con el aderezo y los crotones. Agrega queso cotija."]]},
+ {id:"L08",n:"Ensalada de Atún",t:"Dieta/Light",min:15,d:"Fácil",c4:81,cals:165,prot:20,carbs:6,grasa:8,e:"🥗",desc:"Atún con verduras frescas, limón y mostaza. Rápida y saludable.",img:"",ing:[["Atún en agua","g",280,0.17857142857142858],["Jitomate","pzas",2,7.5],["Pepino","pzas",1,10.0],["Cebolla morada","pza",0.5,0.02],["Limón","pzas",2,1.9],["Mostaza","cdas",2,0.04],["Aceite de oliva","ml",20,0.12]],pasos:[["5 min","Escurre el atún. Pica jitomate, pepino y cebolla en cubos pequeños."],["3 min","Mezcla el aderezo: limón, mostaza, aceite, sal y pimienta."],["inmediato","Mezcla todo. Sirve sobre tostadas o lechuga."]]},
+ {id:"L09",n:"Ensalada de Pollo a la Plancha",t:"Dieta/Light",min:25,d:"Fácil",c4:104,cals:240,prot:32,carbs:8,grasa:10,e:"🥗",desc:"Pechuga jugosa sobre mezcla de lechugas con aderezo de limón.",img:"",ing:[["Pechuga de pollo","g",500,0.15],["Mezcla de lechugas","g",150,0.03],["Jitomate cherry","g",100,0.06],["Aguacate","pza",1,0.075],["Pepino","pzas",1,10.0],["Limón","pzas",3,1.9],["Aceite de oliva","ml",20,0.12]],pasos:[["3 min","Marina la pechuga con limón, ajo, sal y pimienta."],["10 min","Cocina en plancha caliente 5 min por lado. Rebana."],["inmediato","Arma la ensalada con lechugas, jitomates, pepino, aguacate y el pollo rebanado. Aderezo de limón."]]},
+ {id:"L10",n:"Ensalada Caprese Mexicana",t:"Dieta/Light",min:10,d:"Fácil",c4:47,cals:150,prot:8,carbs:5,grasa:11,e:"🥗",desc:"Jitomate, queso panela, aguacate y albahaca. Fresca y ligera.",img:"",ing:[["Jitomate bola","pzas",4,7.5],["Queso panela","g",200,0.055],["Aguacate","pza",1,0.075],["Albahaca fresca","hojas",12,0.17],["Aceite de oliva","ml",30,0.12],["Vinagre balsámico","ml",15,0.025]],pasos:[["5 min","Rebana el jitomate, queso panela y aguacate en círculos uniformes."],["inmediato","Alterna jitomate, queso y aguacate. Coloca hojas de albahaca entre cada capa."],["inmediato","Rocía con aceite de oliva, vinagre balsámico, sal y pimienta de mar."]]},
+ {id:"L11",n:"Wrap de Verduras",t:"Dieta/Light",min:15,d:"Fácil",c4:89,cals:185,prot:8,carbs:24,grasa:7,e:"🌯",desc:"Tortilla de trigo con verduras asadas, hummus y aguacate.",img:"",ing:[["Tortilla de harina grande","pzas",4,1.2],["Espinaca baby","g",100,0.04],["Zanahoria rallada","g",100,0.019],["Pepino","pzas",1,10.0],["Aguacate","pzas",2,30.0],["Limón","pzas",2,1.9],["Queso panela","g",80,0.055]],pasos:[["5 min","Prepara las verduras: ralla la zanahoria, rebana pepino, machaca el aguacate."],["2 min","Unta el aguacate sobre la tortilla. Agrega espinaca, zanahoria, pepino y queso."],["inmediato","Enrolla firmemente. Corta por la mitad en diagonal. Exprime limón al gusto."]]},
+ {id:"L12",n:"Ensalada de Espinacas",t:"Dieta/Light",min:15,d:"Fácil",c4:23,cals:130,prot:7,carbs:9,grasa:9,e:"🥗",desc:"Espinacas con nueces, arándanos y aderezo de miel y mostaza.",img:"",ing:[["Espinaca baby","g",200,0.04],["Nuez picada","g",40,0.12],["Arándano seco","g",30,0.09],["Queso de cabra","g",60,0.12],["Mostaza","cdas",2,0.04],["Miel","cdas",2,0.05],["Limón","pza",1,0.019]],pasos:[["3 min","Prepara el aderezo: mezcla mostaza, miel, jugo de limón, aceite de oliva, sal y pimienta."],["inmediato","Coloca las espinacas en tazón. Agrega nueces, arándanos y queso de cabra."],["inmediato","Vierte el aderezo al gusto y mezcla suavemente."]]},
+ {id:"L13",n:"Aderezo Ranch Casero",t:"Dieta/Light",min:10,d:"Fácil",c4:21,cals:85,prot:1,carbs:2,grasa:8,e:"🥛",desc:"Aderezo cremoso de hierbas. Para ensaladas y verduras.",img:"",ing:[["Yogur griego","g",150,0.065],["Mayonesa light","g",60,0.17],["Ajo en polvo","cdita",1,0.2],["Cebolla en polvo","cdita",0.5,0.02],["Eneldo seco","cdita",1,0.02],["Perejil seco","cdita",1,0.04],["Leche","ml",30,0.027],["Limón","pza",0.5,0.019]],pasos:[["5 min","Mezcla el yogur griego con la mayonesa light hasta que quede terso."],["2 min","Agrega el ajo y cebolla en polvo, eneldo y perejil. Mezcla bien."],["inmediato","Ajusta la consistencia con leche. Exprime el limón y sazona con sal y pimienta."]]},
+ {id:"L14",n:"Aderezo de Limón y Miel",t:"Dieta/Light",min:5,d:"Fácil",c4:15,cals:70,prot:0,carbs:10,grasa:4,e:"🍋",desc:"Aderezo ligero de limón y miel. Para ensaladas frescas.",img:"",ing:[["Jugo de limón","ml",60,0.019],["Miel de abeja","cdas",2,0.05],["Aceite de oliva","ml",40,0.12],["Mostaza dijón","cdita",1,0.04],["Ajo","diente",1,0.2],["Sal y pimienta","al gusto",0,0.02]],pasos:[["3 min","Bate el jugo de limón con la miel hasta integrar."],["2 min","Agrega la mostaza, el ajo machacado, sal y pimienta."],["1 min","Incorpora el aceite de oliva poco a poco batiendo constantemente hasta emulsionar."]]},
+ {id:"L15",n:"Aderezo Balsámico",t:"Dieta/Light",min:5,d:"Fácil",c4:15,cals:75,prot:0,carbs:8,grasa:5,e:"🍷",desc:"Clásico aderezo balsámico con aceite de oliva y hierbas.",img:"",ing:[["Vinagre balsámico","ml",40,0.025],["Aceite de oliva","ml",50,0.12],["Miel","cdita",1,0.05],["Ajo","diente",1,0.2],["Orégano seco","pizca",1,0.03],["Sal y pimienta","al gusto",0,0.02]],pasos:[["2 min","Mezcla el vinagre balsámico con la miel y el ajo machacado."],["1 min","Agrega el orégano, sal y pimienta."],["2 min","Incorpora el aceite de oliva poco a poco batiendo hasta emulsionar."]]},
+];
+
+// ══════════════════════════════════════
+// SALSAS (PRO)
+// ══════════════════════════════════════
+var SALSAS=[
+ {id:"SA01",n:"Salsa Roja Asada",e:"🌶️",desc:"Jitomate y chiles asados directamente en el comal. La más versátil.",ing:[["Jitomate","pzas",3,7.5],["Chile serrano","pzas",3,0.4],["Ajo","dientes",2,1.0],["Cebolla","pza",0.25,0.02],["Sal","al gusto",0,0.02]],pasos:[["8 min","Asa el jitomate, chiles, ajo y cebolla directamente en el comal a fuego alto, volteando hasta que se chamusquen."],["3 min","Licúa todo con sal. Usa el asado para darle sabor ahumado."]]},
+ {id:"SA02",n:"Salsa Verde Cruda",e:"🌿",desc:"Tomate verde, chile y cilantro sin cocción. Fresca y picante.",ing:[["Tomate verde","g",300,0.017],["Chile serrano","pzas",3,0.4],["Cilantro","manojo",0.5,10.0],["Cebolla","pza",0.25,0.02],["Ajo","diente",1,0.2],["Limón","pza",1,0.019]],pasos:[["5 min","Quita las cáscaras a los tomates verdes. Lava todo."],["3 min","Licúa todos los ingredientes en crudo. Ajusta sal y limón."]]},
+ {id:"SA03",n:"Salsa Habanera",e:"🔥",desc:"La más picante. Para valientes. Con zanahorias para balancear.",ing:[["Chile habanero","pzas",4,1.2],["Zanahoria","pzas",2,2.28],["Vinagre blanco","ml",80,0.025],["Ajo","dientes",2,1.0],["Cebolla","pza",0.5,0.02],["Naranja (jugo)","pza",1,0.015]],pasos:[["10 min","Cuece las zanahorias y los chiles habaneros hasta que estén suaves."],["3 min","Licúa todo con el vinagre, ajo y cebolla."],["inmediato","Agrega el jugo de naranja para equilibrar el picante."]]},
+ {id:"SA04",n:"Salsa Macha",e:"🫙",desc:"Aceite con chiles secos, cacahuates y ajonjolí. Adictiva.",ing:[["Chile de árbol seco","pzas",15,0.3],["Chile ancho seco","pzas",2,18.0],["Cacahuate tostado","g",60,0.08],["Ajonjolí","g",20,0.2],["Aceite vegetal","ml",200,0.045],["Ajo","dientes",4,1.0]],pasos:[["3 min","Calienta el aceite. Fríe el ajo hasta dorar. Retira."],["3 min","Fríe los chiles rápido (se queman fácil). Retira."],["5 min","Licúa los chiles con el ajo, cacahuates y ajonjolí. Regresa al aceite."],["5 min","Cocina a fuego bajo 5 minutos. Deja enfriar. Guarda en frasco."]]},
+ {id:"SA05",n:"Salsa Taquera",e:"🌮",desc:"La salsa de los tacos de la calle. Verde, espesa y perfecta.",ing:[["Tomate verde","g",400,0.017],["Chile de árbol","pzas",8,0.3],["Ajo","dientes",2,1.0],["Aceite vegetal","ml",30,0.045],["Sal","al gusto",0,0.02]],pasos:[["10 min","Cuece los tomates con los chiles y ajo en agua. Drena."],["3 min","Licúa hasta obtener una salsa muy tersa."],["5 min","Fríe la salsa en aceite caliente para 'quemarla' y darle sabor."]]},
+ {id:"SA06",n:"Salsa de Molcajete",e:"🪨",desc:"Molida en el molcajete de piedra. La textura marca la diferencia.",ing:[["Jitomate","pzas",3,7.5],["Chile serrano","pzas",2,0.4],["Ajo","dientes",2,1.0],["Cebolla","pza",0.25,0.02],["Cilantro","ramitas",4,0.2],["Limón","pza",1,0.019]],pasos:[["8 min","Asa el jitomate, chile, ajo y cebolla directamente en el fuego."],["5 min","Muele el ajo y la sal en el molcajete hasta pasta. Agrega los chiles, muele."],["3 min","Agrega el jitomate aplastando con golpes. Finaliza con cilantro y limón."]]},
+ {id:"SA07",n:"Salsa Chipotle",e:"♨️",desc:"Chipotle en adobo con jitomate y ajo. Ahumada e irresistible.",ing:[["Chipotle en adobo","pzas",4,2.57],["Jitomate","pzas",2,7.5],["Ajo","dientes",2,1.0],["Cebolla","pza",0.25,0.02],["Aceite","ml",20,0.045]],pasos:[["5 min","Licúa el jitomate con el chipotle, ajo y cebolla hasta tersa."],["8 min","Sofríe la salsa en aceite caliente a fuego medio hasta que cambie de color y se espese."]]},
+ {id:"SA08",n:"Salsa de Aguacate",e:"🥑",desc:"Aguacate, chile y limón. Entre guacamole y salsa, perfecta para tacos.",ing:[["Aguacate","pzas",2,30.0],["Tomate verde","g",150,0.017],["Chile serrano","pzas",2,0.4],["Cilantro","ramitas",4,0.2],["Limón","pzas",2,1.9],["Ajo","diente",1,0.2]],pasos:[["5 min","Cuece los tomates con el chile 5 minutos. Licúa con ajo y cilantro."],["3 min","Agrega el aguacate pelado y sin hueso. Licúa hasta suave."],["inmediato","Sazona con sal y limón. Sirve inmediatamente o cubre con plástico tocando la superficie."]]},
+ {id:"SA09",n:"Salsa Borracha",e:"🍺",desc:"Chile pasilla con cerveza y naranja. La favorita de la barbacoa.",ing:[["Chile pasilla","pzas",4,14.4],["Cerveza oscura","ml",250,0.03],["Naranja (jugo)","pza",2,0.015],["Ajo","dientes",2,1.0],["Cebolla","pza",0.25,0.02],["Sal","al gusto",0,0.02]],pasos:[["5 min","Tuesta los chiles en el comal sin quemarlos. Remójalos en agua caliente 5 min."],["3 min","Licúa los chiles con la cerveza, jugo de naranja, ajo y cebolla."],["inmediato","Ajusta sal. Esta salsa NO se fríe, se sirve así con la barbacoa o birria."]]},
+ {id:"SA10",n:"Salsa Negra",e:"⬛",desc:"Chile mulato y jitomate negro asado. Profunda y compleja.",ing:[["Chile mulato","pzas",4,14.4],["Jitomate","pzas",3,7.5],["Ajo","dientes",3,1.0],["Aceite","ml",40,0.045],["Caldo","ml",100,0.02],["Sal","al gusto",0,0.02]],pasos:[["5 min","Tuesta los chiles directamente en el comal hasta que se pongan casi negros (sin quemar)."],["10 min","Asa el jitomate hasta chamuscar completamente. Licúa con los chiles y ajo."],["8 min","Fríe la salsa en aceite. Agrega caldo, sal y cocina hasta espesar."]]},
+ {id:"SA11",n:"Salsa de Chile de Árbol",e:"🌶️",desc:"Rápida, muy picante y perfecta para cualquier platillo.",ing:[["Chile de árbol","pzas",15,0.3],["Ajo","dientes",2,1.0],["Agua caliente","ml",150,0.02],["Aceite vegetal","ml",20,0.045],["Sal","al gusto",0,0.02]],pasos:[["3 min","Tuesta los chiles secos en el comal a fuego medio. Remójalos en agua caliente 5 min."],["3 min","Licúa con el ajo, agua de remojo y sal."],["5 min","Opcional: fríe en aceite para una salsa más concentrada."]]},
+ {id:"SA12",n:"Salsa Valentina Casera",e:"🏅",desc:"Réplica artesanal de la famosa salsa. Chile ancho y vinagre.",ing:[["Chile ancho","pzas",6,18.0],["Chile guajillo","pzas",3,9.6],["Vinagre blanco","ml",60,0.025],["Ajo","dientes",2,1.0],["Azúcar","cdita",1,0.02],["Sal","cdita",1,0.02]],pasos:[["10 min","Tuesta y remoja los chiles en agua caliente 10 min."],["3 min","Licúa con vinagre, ajo, azúcar y sal hasta muy tersa."],["5 min","Cuece a fuego bajo 5 min. Deja enfriar y guarda en botella."]]},
+ {id:"SA13",n:"Salsa Ranchera",e:"🏡",desc:"Jitomate, chile y cebolla cocidos. Clásica para huevos y carnes.",ing:[["Jitomate","pzas",4,7.5],["Chile serrano","pzas",3,0.4],["Cebolla","pza",0.5,0.02],["Ajo","dientes",2,1.0],["Aceite","ml",20,0.045],["Cilantro","ramitas",3,0.2]],pasos:[["8 min","Cuece el jitomate, chile y ajo en agua hasta blandos."],["3 min","Licúa. Sofríe la cebolla en aceite, agrega la salsa."],["8 min","Cocina a fuego medio hasta que la salsa espese. Agrega cilantro al final."]]},
+ {id:"SA14",n:"Pico de Gallo",e:"🍅",desc:"Jitomate, cebolla, chile y cilantro. Fresco y sin cocción.",ing:[["Jitomate bola","pzas",4,7.5],["Cebolla blanca","pza",0.5,0.02],["Chile serrano","pzas",2,0.4],["Cilantro","manojo",0.5,10.0],["Limón","pzas",3,1.9],["Sal","al gusto",0,0.02]],pasos:[["10 min","Pica el jitomate, cebolla y chile en cubos muy pequeños y uniformes."],["3 min","Pica el cilantro finamente. Mezcla todo."],["inmediato","Sazona con jugo de limón y sal al gusto. Reposa 10 min para que se integren los sabores."]]},
+ {id:"SA15",n:"Salsa de Mango",e:"🥭",desc:"Mango con habanero y limón. El equilibrio perfecto dulce-picante.",ing:[["Mango maduro","pzas",2,10.0],["Chile habanero","pza",1,0.08],["Limón","pzas",2,1.9],["Cebolla morada","pza",0.25,0.02],["Cilantro","ramitas",3,0.2],["Sal","al gusto",0,0.02]],pasos:[["5 min","Pela y pica el mango en cubos. Pica finamente el habanero (sin semillas para menos picante)."],["3 min","Mezcla el mango con el habanero, cebolla morada, cilantro y limón."],["inmediato","Sazona con sal. Perfecta para pescado, tacos de camarón o tostadas."]]},
+ {id:"SA16",n:"Salsa Tamarindo Picante",e:"🫙",desc:"Tamarindo con chile de árbol y piloncillo. Agridulce y adictiva.",ing:[["Pasta de tamarindo","g",100,0.04],["Chile de árbol","pzas",5,0.3],["Piloncillo","g",50,0.035],["Agua caliente","ml",200,0.02],["Sal","al gusto",0,0.02]],pasos:[["5 min","Disuelve la pasta de tamarindo en el agua caliente. Cuega para quitar semillas."],["5 min","Cuece el piloncillo con los chiles tostados y el agua de tamarindo."],["3 min","Licúa hasta tersa. Sazona con sal. Perfecta para dulces, frutas o como salsa para tacos."]]},
+ {id:"SA17",n:"Salsa de Cacahuate",e:"🥜",desc:"Cacahuates tostados con chile. Espesa y sabrosa para enfrijoladas.",ing:[["Cacahuate tostado sin cáscara","g",150,0.08],["Chile ancho","pzas",2,18.0],["Ajo","dientes",2,1.0],["Caldo de pollo","ml",200,0.15],["Aceite","ml",20,0.045],["Sal","al gusto",0,0.02]],pasos:[["5 min","Tuesta y remoja el chile ancho. Tuesta el cacahuate si no está tostado."],["3 min","Licúa el cacahuate con el chile, ajo y caldo hasta salsa espesa."],["8 min","Sofríe en aceite y cocina a fuego bajo 8 minutos moviendo constantemente."]]},
+ {id:"SA18",n:"Salsa Verde con Aguacate",e:"🥑",desc:"Salsa verde cremosa con aguacate. La versión premium del taquero.",ing:[["Tomate verde","g",250,0.017],["Chile serrano","pzas",2,0.4],["Aguacate","pzas",1,30.0],["Cilantro","manojo",0.5,10.0],["Ajo","diente",1,0.2],["Limón","pza",1,0.019]],pasos:[["8 min","Cuece los tomates con el chile hasta blandos. Licúa con ajo y cilantro."],["3 min","Agrega el aguacate pelado. Licúa hasta muy tersa y cremosa."],["inmediato","Sazona con sal y limón. Sirve fría o a temperatura ambiente."]]},
+ {id:"SA19",n:"Salsa Morita",e:"🌑",desc:"Chile morita ahumado con jitomate. Profunda y compleja como el mole.",ing:[["Chile morita","pzas",6,14.4],["Jitomate","pzas",3,7.5],["Ajo","dientes",3,1.0],["Cebolla","pza",0.25,0.02],["Aceite","ml",30,0.045]],pasos:[["5 min","Tuesta los chiles en el comal a fuego medio hasta que inflamen ligeramente."],["5 min","Remójalos en agua caliente. Asa el jitomate, ajo y cebolla."],["3 min","Licúa todo junto. Sofríe en aceite 8 minutos hasta que espese."]]},
+ {id:"SA20",n:"Salsa de Chiles Secos",e:"🌶️",desc:"Mezcla de guajillo, ancho y pasilla. La base del 80% de la cocina mexicana.",ing:[["Chile guajillo","pzas",4,9.6],["Chile ancho","pzas",2,18.0],["Chile pasilla","pzas",2,14.4],["Ajo","dientes",3,1.0],["Cebolla","pza",0.5,0.02],["Comino","pizca",1,0.03]],pasos:[["5 min","Tuesta los 3 chiles en el comal sin quemarlos. Remójalos en agua caliente 10 min."],["3 min","Licúa con ajo, cebolla, comino y agua de remojo."],["5 min","Sofríe en aceite caliente a fuego medio. Usa como base para moles, enchiladas y adobos."]]},
+];
+
+// ══════════════════════════════════════
+// AGUAS FRESCAS (PRO)
+// ══════════════════════════════════════
+var AGUAS=[
+ {id:"AG01",n:"Agua de Jamaica",e:"🌺",desc:"Flor de jamaica hervida con azúcar. La más popular en México.",ing:[["Flor de jamaica seca","g",60,0.035],["Azúcar","g",150,0.02],["Agua","litros",2,0.02],["Limón (opcional)","pzas",2,1.9]],pasos:[["10 min","Hierve la flor de jamaica en 1 litro de agua 10 min."],["5 min","Cuela y agrega azúcar al gusto mientras está caliente."],["30 min","Agrega 1 litro más de agua fría y hielo. Refrigera y sirve con limón."]]},
+ {id:"AG02",n:"Agua de Horchata",e:"🥛",desc:"Arroz con leche, canela y vainilla. La bebida favorita del taco.",ing:[["Arroz blanco","g",150,0.022],["Leche evaporada","ml",375,0.03],["Canela en raja","pzas",2,1.5],["Azúcar","g",120,0.02],["Agua","litros",1.5,0.02],["Vainilla","cdita",1,0.05]],pasos:[["12 hr","Remoja el arroz con la canela en 1 litro de agua desde la noche anterior."],["5 min","Licúa el arroz remojado hasta muy fino. Cuela bien con manta de cielo."],["3 min","Mezcla con la leche evaporada, azúcar, vainilla y agua fría. Sirve con hielo."]]},
+ {id:"AG03",n:"Agua de Tamarindo",e:"🟤",desc:"Tamarindo fresco con azúcar y un toque de chile piquín.",ing:[["Tamarindo con cáscara","g",200,0.04],["Azúcar","g",150,0.02],["Agua","litros",2,0.02],["Chile piquín (opcional)","cdita",1,0.02]],pasos:[["10 min","Hierve el tamarindo sin cáscara en 1 litro de agua. Aplasta para extraer la pulpa."],["5 min","Cuela bien apretando para obtener toda la pulpa."],["3 min","Agrega azúcar, agua fría y hielo. Espolvorea chile piquín si deseas."]]},
+ {id:"AG04",n:"Agua de Limón con Chía",e:"🍋",desc:"Limonada natural con semillas de chía. Refrescante y saludable.",ing:[["Limón","pzas",8,1.9],["Semillas de chía","g",30,0.06],["Azúcar o stevia","g",100,0.02],["Agua","litros",2,0.02],["Menta fresca","hojas",8,0.1]],pasos:[["5 min","Exprime los limones. Mezcla con el agua y azúcar."],["15 min","Remoja las semillas de chía en 100ml de agua 15 min hasta que se hinchen."],["3 min","Mezcla todo, agrega la menta y sirve con mucho hielo."]]},
+ {id:"AG05",n:"Agua de Pepino con Limón",e:"🥒",desc:"Pepino, limón y menta. La más refrescante para el calor.",ing:[["Pepino","pzas",2,10.0],["Limón","pzas",4,1.9],["Azúcar","g",80,0.02],["Menta fresca","hojas",10,0.1],["Agua","litros",2,0.02],["Sal de Colima","pizca",1,0.019]],pasos:[["5 min","Pela y rebana el pepino. Exprime los limones."],["5 min","Licúa el pepino con 1 taza de agua. Cuela."],["3 min","Mezcla con el agua restante, azúcar, limón y menta. Agrega pizca de sal. Sirve con hielo."]]},
+ {id:"AG06",n:"Agua de Sandía",e:"🍉",desc:"Sandía fresca licuada sin azúcar extra. Dulce y perfecta.",ing:[["Sandía","g",1200,0.015],["Limón","pzas",2,1.9],["Agua","ml",500,0.02],["Azúcar (opcional)","g",50,0.02],["Menta","hojas",6,0.1]],pasos:[["5 min","Quita la cáscara y las semillas de la sandía. Corta en cubos."],["3 min","Licúa con el agua y el limón hasta muy tersa."],["inmediato","Sirve sin colar para aprovechar la fibra, o cuela si prefieres más líquida. Agrega menta."]]},
+ {id:"AG07",n:"Agua de Melón",e:"🍈",desc:"Melón amarillo licuado con canela y limón.",ing:[["Melón","g",1000,0.018],["Agua","ml",500,0.02],["Azúcar","g",60,0.02],["Canela molida","pizca",1,0.05],["Limón","pza",1,0.019]],pasos:[["5 min","Pela el melón, quita semillas y corta en cubos."],["3 min","Licúa con el agua, azúcar y canela."],["inmediato","Exprime el limón, agrega hielo y sirve. Opcional: cuela para una bebida más fina."]]},
+ {id:"AG08",n:"Agua de Guanábana",e:"🍑",desc:"Guanábana cremosa con leche condensada. Tropical y especial.",ing:[["Pulpa de guanábana","g",400,0.04],["Leche","ml",500,0.027],["Leche condensada","ml",100,0.045],["Agua","ml",500,0.02],["Hielo","al gusto",0,0.02]],pasos:[["5 min","Limpia la pulpa de guanábana quitando las semillas negras."],["3 min","Licúa la pulpa con la leche, leche condensada y agua."],["inmediato","Sirve muy fría con hielo. El resultado es cremoso y tropical."]]},
+ {id:"AG09",n:"Agua de Mango",e:"🥭",desc:"Mango licuado con chile piquín y limón. El sabor veraniego.",ing:[["Mango manila o petacón","pzas",3,10.0],["Agua","ml",800,0.02],["Azúcar","g",60,0.02],["Limón","pzas",3,1.9],["Chile piquín","cdita",1,0.02],["Sal","pizca",1,0.02]],pasos:[["5 min","Pela el mango y quita el hueso. Corta la pulpa."],["3 min","Licúa el mango con el agua y el azúcar hasta muy tersa."],["inmediato","Agrega jugo de limón, sal y chile piquín. Sirve con hielo y más chile al gusto."]]},
+ {id:"AG10",n:"Agua de Maracuyá",e:"💛",desc:"Maracuyá tropical con azúcar y limón. Exótica y muy refrescante.",ing:[["Maracuyá","pzas",8,6.0],["Azúcar","g",120,0.02],["Agua","litros",2,0.02],["Limón","pzas",2,1.9],["Menta","hojas",6,0.1]],pasos:[["5 min","Corta el maracuyá por la mitad. Extrae la pulpa con semillas."],["3 min","Mezcla la pulpa con el agua y azúcar. Puedes colar para quitar semillas o dejarlo natural."],["inmediato","Exprime el limón, agrega menta y sirve con mucho hielo."]]},
+];
+
+// ══════════════════════════════════════
+// ESTADO GLOBAL
+// ══════════════════════════════════════
+var CU=null,RA=null,POR=4,PRES=4,LP=4,REZ=[];
+var negIngs=[{n:'',u:'gramos',c:0,q:0}];
+var selRecetas=[];
+var DIAS=["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"];
+var TIEMPOS=[
+ {key:"des",label:"🍳 Desayuno",cat:"Desayuno",cls:"ht-des"},
+ {key:"sopa",label:"🥣 Sopa/Entrada",cat:"Sopa/Entrada",cls:"ht-sopa"},
+ {key:"plato",label:"🍽️ Plato Fuerte",cat:"Plato Fuerte",cls:"ht-plato"},
+];
+var MENU={};
+function resetMenu(){DIAS.forEach(function(d){MENU[d]={};TIEMPOS.forEach(function(t){MENU[d][t.key]=null;});});}
+resetMenu();
+
+// ══════════════════════════════════════
+// AUTH
+// ══════════════════════════════════════
+function getUsers(){try{return JSON.parse(localStorage.getItem('sdm_u')||'{}')}catch(e){return{}}}
+function saveUsers(u){try{localStorage.setItem('sdm_u',JSON.stringify(u))}catch(e){}}
+function getUD(e){try{return JSON.parse(localStorage.getItem('sdm_d_'+e)||'null')}catch(e){return null}}
+function saveUD(e,d){try{localStorage.setItem('sdm_d_'+e,JSON.stringify(d))}catch(e){}}
+function defUD(n,e){return{nombre:n,email:e,plan:'free',favs:[],menus:[],vistas:0}}
+
+function switchTab(t){
+ document.querySelectorAll('.aseg').forEach(function(b,i){b.classList.toggle('on',(i===0&&t==='login')||(i===1&&t==='reg'));});
+ document.getElementById('loginForm').classList.toggle('hide',t!=='login');
+ document.getElementById('regForm').classList.toggle('hide',t!=='reg');
+}
+function showErr(id,msg){
+ var e=document.getElementById(id);
+ e.textContent=msg;e.style.display='block';
+ setTimeout(function(){e.style.display='none';},3500);
+}
+
+function doLogin(){
+ var em=document.getElementById('lemail').value.trim().toLowerCase();
+ var pw=document.getElementById('lpass').value;
+ if(!em||!pw){showErr('lerr','Completa todos los campos');return;}
+ // Admin check
+ if(em===ADMIN_EMAIL&&btoa(pw)===ADMIN_PASS){
+  var d=getUD(em)||defUD('Edwin (Admin)',em);
+  d.plan='pro';saveUD(em,d);loginUser(d);return;
+ }
+ var u=getUsers();
+ if(!u[em]){showErr('lerr','Correo no registrado');return;}
+ if(u[em].p!==btoa(pw)){showErr('lerr','Contraseña incorrecta');return;}
+ var d2=getUD(em)||defUD(u[em].n,em);
+ loginUser(d2);
+}
+function doReg(){
+ var n=document.getElementById('rnombre').value.trim();
+ var em=document.getElementById('remail').value.trim().toLowerCase();
+ var pw=document.getElementById('rpass').value;
+ if(!n||!em||!pw){showErr('rerr','Completa todos los campos');return;}
+ if(pw.length<6){showErr('rerr','Contraseña mínimo 6 caracteres');return;}
+ var u=getUsers();
+ if(u[em]){showErr('rerr','Este correo ya está registrado');return;}
+ u[em]={n:n,p:btoa(pw)};saveUsers(u);
+ var d=defUD(n,em);saveUD(em,d);loginUser(d);
+}
+function loginDemo(){var d=defUD('Demo','demo@sabores.mx');d.email='demo@sabores.mx';loginUser(d);}
+function loginUser(d){
+ // Generate device token to prevent session sharing
+ var devToken=localStorage.getItem('sdm_dev_token');
+ if(!devToken){devToken='dev_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);localStorage.setItem('sdm_dev_token',devToken);}
+ // Admin always allowed on any device
+ if(d.email!==ADMIN_EMAIL){
+  var storedToken=d.devToken||null;
+  if(storedToken&&storedToken!==devToken){
+   // Different device trying to use same account
+   showAuthErr('Esta cuenta ya está activa en otro dispositivo. Cierra sesión allá primero o usa un correo diferente.');
+   return;
+  }
+  d.devToken=devToken;
+ }
+ CU=d;
+ saveUD(d.email,d);
+ localStorage.setItem('sdm_session_email',d.email);
+ document.getElementById('auth').classList.add('gone');
+ updateHeader();renderAds();renderRecetas();renderMenu();renderMenusGuardados();renderPerfil();
+ renderRecSelGrid();renderMenuPro();
+}
+function showAuthErr(msg){
+ var e=document.getElementById('lerr');
+ e.textContent=msg;e.style.display='block';
+ setTimeout(function(){e.style.display='none';},5000);
+}
+function doLogout(){
+ if(CU)saveUD(CU.email,CU);
+ CU=null;
+ localStorage.removeItem('sdm_session_email');
+ document.getElementById('auth').classList.remove('gone');
+}
+function isPro(){return CU&&CU.plan==='pro';}
+
+function updateHeader(){
+ if(!CU)return;
+ document.getElementById('hav').textContent=CU.nombre.charAt(0).toUpperCase();
+ document.getElementById('hname').textContent=CU.nombre.split(' ')[0];
+ var b=document.getElementById('hbadge');
+ b.textContent=isPro()?'PRO ⭐':'FREE';
+ b.className='pbadge '+(isPro()?'ppro':'pfree');
+}
+
+// ══════════════════════════════════════
+// ANUNCIOS
+// ══════════════════════════════════════
+function renderAds(){
+ ['adTop','adCalc','adMenu','adModal','adMid'].forEach(function(id){
+  var el=document.getElementById(id);
+  if(el)el.classList.toggle('hide',isPro());
+ });
+ document.getElementById('proSticky').classList.toggle('hide',isPro());
+}
+
+// ══════════════════════════════════════
+// NAVEGACIÓN
+// ══════════════════════════════════════
+function goTab(id){
+ document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on');});
+ document.querySelectorAll('.tb').forEach(function(b){b.classList.remove('on');});
+ document.getElementById('sec-'+id).classList.add('on');
+ var tabs=['recetas','calc','menu','rez','salsas','aguas','perfil'];
+ var idx=tabs.indexOf(id);
+ if(idx>=0)document.querySelectorAll('.tb')[idx].classList.add('on');
+ if(id==='perfil')renderPerfil();
+ if(id==='salsas'||id==='aguas')renderMenuPro();
+}
+
+// ══════════════════════════════════════
+// RECETAS
+// ══════════════════════════════════════
+function tipoClass(t){
+ return{'Sopa/Entrada':'t-sopa','Plato Fuerte':'t-plato','Desayuno':'t-des','Dieta/Light':'t-light','Salsa':'t-salsa','Agua Fresca':'t-agua'}[t]||'t-plato';
+}
+
+function renderRecetas(filtro){
+ if(filtro!==undefined)FILTRO_ACTIVO=filtro;
+ var grid=document.getElementById('rgrid');
+ var lista=RECETAS.filter(function(r){
+  var matchFiltro=FILTRO_ACTIVO==='todos'||r.t===FILTRO_ACTIVO||r.d===FILTRO_ACTIVO;
+  var matchBusqueda=!BUSQUEDA||
+   r.n.toLowerCase().includes(BUSQUEDA)||
+   r.desc.toLowerCase().includes(BUSQUEDA)||
+   r.t.toLowerCase().includes(BUSQUEDA)||
+   r.ing.some(function(i){return i[0].toLowerCase().includes(BUSQUEDA);});
+  return matchFiltro&&matchBusqueda;
+ });
+ var cnt=document.getElementById('searchCount');
+ if(BUSQUEDA){
+  cnt.textContent=lista.length===0?'Sin resultados para "'+BUSQUEDA+'"':lista.length+' resultado'+(lista.length===1?'':'s')+' para "'+BUSQUEDA+'"';
+ } else {
+  cnt.textContent='';
+ }
+ if(!lista.length){
+  grid.innerHTML='<div class="no-results"><div class="nr-icon">🔍</div><p>No encontramos recetas con "<strong>'+BUSQUEDA+'</strong>".<br>Intenta con otro ingrediente o nombre.</p></div>';
+  return;
+ }
+ grid.innerHTML=lista.map(function(r){
+  var bgCls={'Sopa/Entrada':'bg-sopa','Plato Fuerte':'bg-plato','Desayuno':'bg-des','Dieta/Light':'bg-light'}[r.t]||'bg-plato';
+  return '<div class="card" onclick="abrirR(\''+r.id+'\')">'
+   +'<div class="card-img '+bgCls+'"><div class="card-ph">'+r.e+'</div></div>'
+   +'<div class="card-body">'
+   +'<span class="ctipo '+tipoClass(r.t)+'">'+r.t+'</span>'
+   +'<h3>'+r.n+'</h3><p>'+r.desc+'</p>'
+   +'<div class="cmeta"><span class="mi">⏱️ '+r.min+'min</span>'
+   +(r.cals?'<span class="mi" style="color:var(--mor)">🔥'+r.cals+'kcal</span>':'')
+   +'<span class="dif d'+r.d.charAt(0)+'">'+r.d+'</span></div>'
+   +'</div></div>';
+ }).join('');
+}
+
+var BUSQUEDA='';
+var FILTRO_ACTIVO='todos';
+
+function filtrar(f,btn){
+ FILTRO_ACTIVO=f;
+ BUSQUEDA='';
+ document.getElementById('searchInp').value='';
+ document.getElementById('searchClear').classList.remove('on');
+ document.querySelectorAll('.fb').forEach(function(b){b.classList.remove('on');});
+ btn.classList.add('on');
+ renderRecetas();
+}
+
+function buscarReceta(q){
+ BUSQUEDA=q.toLowerCase().trim();
+ document.getElementById('searchClear').classList.toggle('on',BUSQUEDA.length>0);
+ // Reset category filter when searching
+ if(BUSQUEDA){
+  FILTRO_ACTIVO='todos';
+  document.querySelectorAll('.fb').forEach(function(b){b.classList.remove('on');});
+  document.querySelector('.fb').classList.add('on');
+ }
+ renderRecetas();
+}
+
+function limpiarBusqueda(){
+ BUSQUEDA='';
+ document.getElementById('searchInp').value='';
+ document.getElementById('searchClear').classList.remove('on');
+ document.getElementById('searchInp').focus();
+ renderRecetas();
+}
+
+// ══════════════════════════════════════
+// MODAL RECETA — CORREGIDO
+// ══════════════════════════════════════
+function abrirR(id){
+ RA=RECETAS.find(function(r){return r.id===id;});
+ if(!RA)return;
+ if(CU){CU.vistas=(CU.vistas||0)+1;}
+ POR=4;
+ document.getElementById('mtit').textContent=RA.n;
+ var hero=document.getElementById('mhero');
+ var oldImg=hero.querySelector('img');
+ var oldPh=hero.querySelector('.mhero-ph');
+ if(oldImg)oldImg.remove();
+ if(oldPh)oldPh.remove();
+ var bgMap={'Sopa/Entrada':'bg-sopa','Desayuno':'bg-des','Dieta/Light':'bg-light'};
+ hero.className='mhero '+(bgMap[RA.t]||'');
+ var ph=document.createElement('div');
+ ph.className='mhero-ph';
+ var catL={'Sopa/Entrada':'🥣 Sopa','Plato Fuerte':'🍽️ Plato Fuerte','Desayuno':'🍳 Desayuno','Dieta/Light':'🥗 Light'}[RA.t]||RA.t;
+ ph.textContent=RA.e;
+ hero.insertBefore(ph,hero.querySelector('.mclose'));
+ var nutr=document.getElementById('mnutr');
+ if(RA.cals){
+  nutr.style.display='flex';
+  nutr.innerHTML=[['Calorías',RA.cals+' kcal'],['Proteína',RA.prot+'g'],['Carbos',RA.carbs+'g'],['Grasa',RA.grasa+'g']]
+   .map(function(x){return '<div class="nutr-i"><span>'+x[0]+'</span><strong>'+x[1]+'</strong></div>';}).join('');
+ }else{nutr.style.display='none';}
+ var adM=document.getElementById('adModal');
+ if(adM)adM.classList.toggle('hide',isPro());
+ var isFav=CU&&CU.favs&&CU.favs.includes(RA.id);
+ document.getElementById('favBtn').textContent=isFav?'💔 Quitar de Favoritos':'❤️ Guardar en Favoritos';
+ updateModal();
+ document.getElementById('moverlay').classList.add('on');
+ document.body.style.overflow='hidden';
+}
+
+function updateModal(){
+ var f=POR/4;
+ document.querySelectorAll('.pb2').forEach(function(b){b.classList.toggle('on',parseInt(b.textContent)===POR);});
+ var c=RA.ing.reduce(function(s,i){return s+i[2]*f*i[3];},0);
+ document.getElementById('mcosto').textContent='$'+Math.round(c);
+ document.getElementById('ming').innerHTML=RA.ing.map(function(i){
+  var v=i[2]*f;var vs=Number.isInteger(v)?v:v.toFixed(1);
+  return '<div class="ii"><span class="ii-n">'+i[0]+'</span><span class="ii-c">'+vs+' '+i[1]+'</span></div>';
+ }).join('');
+ document.getElementById('mpasos').innerHTML=RA.pasos.map(function(p,k){
+  return '<div class="paso"><div class="paso-n">'+(k+1)+'</div><div><div class="paso-t">⏱ '+p[0]+'</div><div class="paso-d">'+p[1]+'</div></div></div>';
+ }).join('');
+}
+function setPor(n){POR=n;updateModal();}
+function cerrarM(e){if(e.target===document.getElementById('moverlay'))cerrarMbtn();}
+function cerrarMbtn(){document.getElementById('moverlay').classList.remove('on');document.body.style.overflow='';}
+function toggleFav(){
+ if(!CU)return;
+ if(!CU.favs)CU.favs=[];
+ var id=RA.id,idx=CU.favs.indexOf(id);
+ if(idx>=0){CU.favs.splice(idx,1);document.getElementById('favBtn').textContent='❤️ Guardar en Favoritos';showToast('Eliminado de favoritos');}
+ else{CU.favs.push(id);document.getElementById('favBtn').textContent='💔 Quitar de Favoritos';showToast('❤️ Guardado en favoritos');}
+ saveUD(CU.email,CU);
+}
+
+// ══════════════════════════════════════
+// CALCULADORAS
+// ══════════════════════════════════════
+function switchCalc(id,btn){
+ ['presupuesto','negocio','lista'].forEach(function(k){
+  document.getElementById('calc-'+k).style.display=k===id?'':'none';
+ });
+ document.querySelectorAll('.ctab').forEach(function(b){b.classList.remove('on');});
+ if(btn)btn.classList.add('on');
+}
+
+// PRESUPUESTO
+function setP(n,btn){PRES=n;document.querySelectorAll('#calc-presupuesto .pbtn').forEach(function(b){b.classList.remove('on');});btn.classList.add('on');}
+function calcular(){
+ var pres=parseFloat(document.getElementById('cpres').value);
+ if(!pres||pres<=0){document.getElementById('cpres').style.borderColor='var(--r)';return;}
+ document.getElementById('cpres').style.borderColor='';
+ var f=PRES/4;
+ var posibles=RECETAS.filter(function(r){return(r.c4*f)<=pres;}).sort(function(a,b){return(b.c4*f)-(a.c4*f);});
+ var cres=document.getElementById('cres');
+ document.getElementById('cresH').textContent=posibles.length===0?'Presupuesto muy ajustado 😅':posibles.length+' recetas dentro de tu presupuesto';
+ document.getElementById('cresL').innerHTML=posibles.map(function(r){
+  var c=Math.round(r.c4*f);
+  return '<div class="cres-item" onclick="abrirR(\''+r.id+'\')">'+r.e+' '+r.n+' · ⏱'+r.min+'min · '+r.d+'<strong>$'+c+'</strong></div>';
+ }).join('');
+ cres.classList.add('on');
+ cres.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// NEGOCIO
+function renderNegIngs(){
+ var c=document.getElementById('negIngs');
+ c.innerHTML=negIngs.map(function(ing,i){
+  return '<div class="ing-row">'
+   +'<input placeholder="Ingrediente (ej: carne molida)" value="'+ing.n+'" onchange="negIngs['+i+'].n=this.value">'
+   +'<input type="number" placeholder="Cant." min="0" step="0.01" value="'+(ing.q||'')+'" style="width:80px" onchange="negIngs['+i+'].q=parseFloat(this.value)||0">'
+   +'<select onchange="negIngs['+i+'].u=this.value">'
+   +['gramos','kg','litros','ml','pzas','cdas','cditas','tazas'].map(function(u){return '<option'+(ing.u===u?' selected':'')+'>'+u+'</option>';}).join('')
+   +'</select>'
+   +'<input type="number" placeholder="$ costo" min="0" step="0.01" value="'+(ing.c||'')+'" style="width:90px" onchange="negIngs['+i+'].c=parseFloat(this.value)||0">'
+   +'<button class="del-ing" onclick="negIngs.splice('+i+',1);renderNegIngs()">×</button>'
+   +'</div>';
+ }).join('');
+}
+function addIngNeg(){negIngs.push({n:'',u:'gramos',c:0,q:0});renderNegIngs();}
+function calcNegocio(){
+ var nombre=document.getElementById('negNombre').value.trim()||'Platillo';
+ var margen=parseFloat(document.getElementById('negMargen').value)||40;
+ var porciones=parseInt(document.getElementById('negPorciones').value)||1;
+ var total=negIngs.reduce(function(s,i){return s+(i.c||0);},0);
+ var costoUnit=total/porciones;
+ var pvp=costoUnit*(1+margen/100);
+ var ganancia=pvp-costoUnit;
+ document.getElementById('negRes').innerHTML=
+  '<div class="neg-res">'
+  +'<div style="font-weight:900;font-size:1.1rem;margin-bottom:6px">📊 Resultados: '+nombre+'</div>'
+  +'<div class="neg-res-grid">'
+  +'<div class="neg-r-item"><span>Costo total ingredientes</span><strong>$'+total.toFixed(2)+' MXN</strong></div>'
+  +'<div class="neg-r-item"><span>Costo por porción/unidad</span><strong>$'+costoUnit.toFixed(2)+' MXN</strong></div>'
+  +'<div class="neg-r-item"><span>Precio de venta sugerido ('+margen+'% margen)</span><strong>$'+pvp.toFixed(2)+' MXN</strong></div>'
+  +'<div class="neg-r-item"><span>Ganancia neta por unidad</span><strong>$'+ganancia.toFixed(2)+' MXN</strong></div>'
+  +'</div>'
+  +'<div style="margin-top:10px;font-size:.78rem;opacity:.8">💡 Con '+margen+'% de margen vendes '+porciones+' unidades y ganas $'+(ganancia*porciones).toFixed(2)+' por batch completo.</div>'
+  +'</div>';
+}
+
+// LISTA COMPRAS
+function renderRecSelGrid(){
+ var g=document.getElementById('recSelGrid');
+ if(!g)return;
+ g.innerHTML=RECETAS.map(function(r){
+  var sel=selRecetas.includes(r.id);
+  return '<div class="rec-sel-item'+(sel?' sel':'')+'" onclick="toggleRecSel(\''+r.id+'\',this)">'+r.e+' '+r.n+'</div>';
+ }).join('');
+}
+function toggleRecSel(id,el){
+ var idx=selRecetas.indexOf(id);
+ if(idx>=0)selRecetas.splice(idx,1);
+ else selRecetas.push(id);
+ el.classList.toggle('sel');
+}
+function setLP(n,btn){LP=n;document.querySelectorAll('#calc-lista .pbtn').forEach(function(b){b.classList.remove('on');});btn.classList.add('on');}
+function genListaCompras(){
+ if(!selRecetas.length){showToast('Selecciona al menos una receta');return;}
+ var f=LP/4;var mapa={};
+ selRecetas.forEach(function(id){
+  var r=RECETAS.find(function(x){return x.id===id;});
+  if(!r)return;
+  r.ing.forEach(function(ing){
+   var k=ing[0]+'||'+ing[1];
+   if(!mapa[k])mapa[k]={n:ing[0],u:ing[1],t:0,c:0};
+   mapa[k].t+=ing[2]*f;mapa[k].c+=ing[2]*f*ing[3];
+  });
+ });
+ var items=Object.values(mapa).sort(function(a,b){return a.n.localeCompare(b.n);});
+ var tot=items.reduce(function(s,i){return s+i.c;},0);
+ var recs=selRecetas.map(function(id){var r=RECETAS.find(function(x){return x.id===id;});return r?r.n:'';});
+ document.getElementById('listaComprasRes').innerHTML=
+  '<div class="lista-box on" style="display:block;margin-top:14px">'
+  +'<h3>🛒 Lista para: '+recs.join(', ')+'</h3>'
+  +'<div class="litems">'+items.map(function(i){
+   return '<div class="litem"><div class="lchk" onclick="this.classList.toggle(\'on\')"></div><span><strong>'+i.n+'</strong> — '+Number(i.t.toFixed(1))+' '+i.u+'</span></div>';
+  }).join('')+'</div>'
+  +'<div class="costo-s"><span>💰 Costo estimado total:</span><strong>$'+Math.round(tot)+' MXN</strong></div>'
+  +'</div>';
+}
+
+// ══════════════════════════════════════
+// MENÚ SEMANAL
+// ══════════════════════════════════════
+function renderMenu(){
+ var g=document.getElementById('mgrid');
+ var h='<div class="mc" style="background:transparent;border:none;"></div>';
+ DIAS.forEach(function(d){h+='<div class="mc hd">'+d+'</div>';});
+ TIEMPOS.forEach(function(t){
+  h+='<div class="mc '+t.cls+'">'+t.label+'</div>';
+  DIAS.forEach(function(d){
+   var r=MENU[d][t.key];
+   h+='<div class="mc ed'+(r?' tiene':'')+'" onclick="abrirMM(\''+d+'\',\''+t.key+'\',\''+t.cat+'\')">'
+    +(r?r.n:'<span style="opacity:.28;font-size:.66rem">+ Agregar</span>')
+    +'</div>';
+  });
+ });
+ g.innerHTML=h;
+}
+function abrirMM(dia,tiempo,cat){
+ var filtradas=RECETAS.filter(function(r){return r.t===cat;});
+ document.getElementById('mmList').innerHTML=
+  '<div class="mm-item" onclick="selR(\''+dia+'\',\''+tiempo+'\',null)" style="color:var(--cm);font-style:italic">— Sin receta —</div>'
+  +filtradas.map(function(r){
+   return '<div class="mm-item" onclick="selR(\''+dia+'\',\''+tiempo+'\',\''+r.id+'\')">'+r.e+' '+r.n+'<span style="font-size:.7rem;color:var(--cm)">⏱'+r.min+'m</span></div>';
+  }).join('');
+ document.getElementById('mmModal').classList.add('on');
+}
+function selR(d,t,id){
+ MENU[d][t]=id?RECETAS.find(function(r){return r.id===id;}):null;
+ cerrarMM();renderMenu();
+ document.getElementById('listaBox').classList.remove('on');
+}
+function cerrarMM(){document.getElementById('mmModal').classList.remove('on');}
+
+function genLista(){
+ var por=parseInt(document.getElementById('pGlobal').value);
+ var f=por/4;var mapa={};
+ Object.values(MENU).forEach(function(d){Object.values(d).forEach(function(r){
+  if(!r)return;
+  r.ing.forEach(function(ing){
+   var k=ing[0]+'||'+ing[1];
+   if(!mapa[k])mapa[k]={n:ing[0],u:ing[1],t:0,c:0};
+   mapa[k].t+=ing[2]*f;mapa[k].c+=ing[2]*f*ing[3];
+  });
+ });});
+ var items=Object.values(mapa).sort(function(a,b){return a.n.localeCompare(b.n);});
+ if(!items.length){showToast('Agrega recetas al menú primero');return;}
+ var tot=items.reduce(function(s,i){return s+i.c;},0);
+ var lb=document.getElementById('listaBox');
+ lb.innerHTML='<h3>🛒 Lista del Súper · '+por+' personas/comida</h3>'
+  +'<div class="litems">'+items.map(function(i){
+   return '<div class="litem"><div class="lchk" onclick="this.classList.toggle(\'on\')"></div><span><strong>'+i.n+'</strong> — '+Number(i.t.toFixed(1))+' '+i.u+'</span></div>';
+  }).join('')+'</div>'
+  +'<div class="costo-s"><span>💰 Costo total estimado de la semana:</span><strong>$'+Math.round(tot)+' MXN</strong></div>';
+ lb.classList.add('on');
+ lb.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function abrirGuardar(){
+ if(!isPro()){abrirMP();return;}
+ var hay=Object.values(MENU).some(function(d){return Object.values(d).some(function(r){return r;});});
+ if(!hay){showToast('Agrega recetas al menú primero');return;}
+ document.getElementById('smInp').value='Semana del '+new Date().toLocaleDateString('es-MX');
+ document.getElementById('smOv').classList.add('on');
+}
+function cerrarSM(){document.getElementById('smOv').classList.remove('on');}
+function confirmarGuardar(){
+ var n=document.getElementById('smInp').value.trim();
+ if(!n){showToast('Ponle un nombre al menú');return;}
+ if(!CU.menus)CU.menus=[];
+ var recs=[];
+ Object.values(MENU).forEach(function(d){Object.values(d).forEach(function(r){if(r&&!recs.includes(r.n))recs.push(r.n);});});
+ CU.menus.unshift({id:Date.now(),n:n,fecha:new Date().toLocaleDateString('es-MX'),recs:recs,state:JSON.parse(JSON.stringify(MENU))});
+ saveUD(CU.email,CU);cerrarSM();renderMenusGuardados();showToast('💾 Menú guardado correctamente');
+}
+function renderMenusGuardados(){
+ var el=document.getElementById('mguardados');
+ var m=CU&&CU.menus?CU.menus:[];
+ if(!m.length){el.innerHTML='';return;}
+ el.innerHTML='<h3>💾 Mis Menús Guardados</h3>'+m.map(function(x){
+  return '<div class="mgi"><div class="mgi-i"><div class="mn">'+x.n+'</div><div class="mf">📅 '+x.fecha+'</div><div class="mr">🍽️ '+x.recs.slice(0,3).join(', ')+(x.recs.length>3?' +'+( x.recs.length-3):'')+'</div></div>'
+   +'<div class="mgi-b"><button class="bsm bcar" onclick="cargarMenu('+x.id+')">📂 Cargar</button><button class="bsm bdel" onclick="borrarMenu('+x.id+')">🗑️</button></div></div>';
+ }).join('');
+}
+function cargarMenu(id){var m=CU.menus.find(function(x){return x.id===id;});if(!m)return;MENU=m.state;renderMenu();showToast('📂 Menú cargado: '+m.n);}
+function borrarMenu(id){CU.menus=CU.menus.filter(function(x){return x.id!==id;});saveUD(CU.email,CU);renderMenusGuardados();showToast('Menú eliminado');}
+
+// ══════════════════════════════════════
+// REZAGADOS / IA
+// ══════════════════════════════════════
+function addRez(){
+ var v=document.getElementById('rinp').value.trim();
+ if(!v)return;
+ v.split(',').forEach(function(x){var t=x.trim().toLowerCase();if(t&&!REZ.includes(t))REZ.push(t);});
+ document.getElementById('rinp').value='';
+ renderRTags();
+}
+function renderRTags(){
+ document.getElementById('rtags').innerHTML=REZ.map(function(r){
+  return '<div class="rtag">🥬 '+r+'<div class="rtx" onclick="quitarRez(\''+r+'\')">×</div></div>';
+ }).join('');
+}
+function quitarRez(r){REZ=REZ.filter(function(i){return i!==r;});renderRTags();}
+
+async function sugerir(){
+ if(!isPro()){
+  document.getElementById('sugRes').innerHTML='<div class="pro-wall"><h3>🔒 Reciclador con IA — Plan Pro</h3><p>La IA analiza tus ingredientes y te sugiere qué platillos mexicanos puedes preparar para no desperdiciar nada.</p><button class="upg-btn" onclick="abrirMP()">⭐ Pro desde $79/mes · o $349 de por vida</button></div>';
+  return;
+ }
+ if(!REZ.length){showToast('Agrega ingredientes primero');return;}
+ var btn=document.getElementById('sugTxt');
+ btn.innerHTML='<div class="spinner"></div> Analizando con IA...';
+ var scored=RECETAS.map(function(r){
+  var names=r.ing.map(function(i){return i[0].toLowerCase();});
+  var matches=REZ.filter(function(rz){return names.some(function(n){return n.includes(rz)||rz.includes(n.split(' ')[0]);});});
+  return{r:r,matches:matches,score:matches.length};
+ }).filter(function(x){return x.score>0;}).sort(function(a,b){return b.score-a.score;}).slice(0,6);
+ try{
+  var res=await fetch("https://api.anthropic.com/v1/messages",{
+   method:"POST",headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:800,
+    messages:[{role:"user",content:"Tengo estos ingredientes: "+REZ.join(', ')+".\nDe estas recetas mexicanas, cuáles recomiendas: "+scored.map(function(s){return s.r.n;}).join(', ')+"\nSOLO JSON sin backticks: {\"s\":[{\"n\":\"nombre exacto\",\"r\":\"frase motivante\",\"tip\":\"tip de preparación\"}]}"}]})
+  });
+  var data=await res.json();
+  var txt=data.content&&data.content.map(function(c){return c.text||'';}).join('').replace(/```json|```/g,'').trim();
+  var parsed=JSON.parse(txt);
+  document.getElementById('sugRes').innerHTML='<div class="sgrid">'+parsed.s.slice(0,6).map(function(sug){
+   var f=scored.find(function(s){return s.r.n===sug.n;});if(!f)return'';
+   return '<div class="scard" onclick="abrirR(\''+f.r.id+'\')">'
+    +'<div class="sm2">✅ '+f.matches.length+' ingrediente(s)</div>'
+    +'<h4>'+f.r.e+' '+f.r.n+'</h4>'
+    +'<p style="margin-bottom:6px">'+sug.r+'</p>'
+    +'<p style="font-size:.74rem;color:var(--v);font-weight:700">💡 '+sug.tip+'</p>'
+    +'<div class="schips">'+f.matches.map(function(m){return '<span class="schip">'+m+'</span>';}).join('')+'</div>'
+    +'</div>';
+  }).join('')+'</div>';
+ }catch(e){
+  document.getElementById('sugRes').innerHTML='<div class="sgrid">'+scored.map(function(x){
+   return '<div class="scard" onclick="abrirR(\''+x.r.id+'\')">'
+    +'<div class="sm2">✅ '+x.matches.length+' ingrediente(s)</div>'
+    +'<h4>'+x.r.e+' '+x.r.n+'</h4><p>'+x.r.desc+'</p>'
+    +'<div class="schips">'+x.matches.map(function(m){return '<span class="schip">'+m+'</span>';}).join('')+'</div>'
+    +'</div>';
+  }).join('')+'</div>';
+ }
+ btn.innerHTML='🤖 Sugerir con IA';
+}
+
+// ══════════════════════════════════════
+// SECCIONES PRO
+// ══════════════════════════════════════
+function renderMenuPro(){
+ // Salsas
+ var elS=document.getElementById('salsasContent');
+ if(!elS)return;
+ if(!isPro()){
+  elS.innerHTML='<div class="pro-wall"><h3>🌶️ Salsas Mexicanas — Plan Pro</h3><p>20 salsas auténticas incluyendo la macha, habanera, de molcajete y muchas más. Solo para usuarios Pro.</p><button class="upg-btn" onclick="abrirMP()">⭐ Activar Pro — $79/mes</button></div>';
+  document.getElementById('aguasContent').innerHTML='<div class="pro-wall"><h3>💧 Aguas Frescas — Plan Pro</h3><p>10 recetas de aguas artesanales: jamaica, horchata, tamarindo y más. Solo para usuarios Pro.</p><button class="upg-btn" onclick="abrirMP()">⭐ Activar Pro — $79/mes</button></div>';
+  return;
+ }
+ elS.innerHTML='<div class="rgrid">'+SALSAS.map(function(s){
+  return '<div class="card" onclick="abrirSalsa(\''+s.id+'\')">'
+   +'<div class="card-img"><div class="card-ph">'+s.e+'</div></div>'
+   +'<div class="card-body"><span class="ctipo t-salsa">Salsa</span><h3>'+s.n+'</h3><p>'+s.desc+'</p>'
+   +'<div class="cmeta"><span class="mi">🌶️ Artesanal</span></div></div></div>';
+ }).join('')+'</div>';
+ document.getElementById('aguasContent').innerHTML='<div class="rgrid">'+AGUAS.map(function(a){
+  return '<div class="card" onclick="abrirAgua(\''+a.id+'\')">'
+   +'<div class="card-img"><div class="card-ph">'+a.e+'</div></div>'
+   +'<div class="card-body"><span class="ctipo t-agua">Agua Fresca</span><h3>'+a.n+'</h3><p>'+a.desc+'</p>'
+   +'<div class="cmeta"><span class="mi">💧 Artesanal</span></div></div></div>';
+ }).join('')+'</div>';
+}
+
+function abrirSalsa(id){
+ var s=SALSAS.find(function(x){return x.id===id;});if(!s)return;
+ RA={id:s.id,n:s.n,e:s.e,img:'',t:'Salsa',min:20,d:'Fácil',c4:20,desc:s.desc,ing:s.ing,pasos:s.pasos,cals:null};
+ POR=4;abrirRaw();
+}
+function abrirAgua(id){
+ var a=AGUAS.find(function(x){return x.id===id;});if(!a)return;
+ RA={id:a.id,n:a.n,e:a.e,img:'',t:'Agua Fresca',min:15,d:'Fácil',c4:15,desc:a.desc,ing:a.ing,pasos:a.pasos,cals:null};
+ POR=4;abrirRaw();
+}
+function abrirRaw(){
+ document.getElementById('mtit').textContent=RA.n;
+ var hero=document.getElementById('mhero');
+ var oldImg=hero.querySelector('img');var oldPh=hero.querySelector('.mhero-ph');
+ if(oldImg)oldImg.remove();if(oldPh)oldPh.remove();
+ var ph=document.createElement('div');ph.className='mhero-ph';
+ var catL={'Sopa/Entrada':'🥣 Sopa','Plato Fuerte':'🍽️ Plato Fuerte','Desayuno':'🍳 Desayuno','Dieta/Light':'🥗 Light','Salsa':'🌶️ Salsa','Agua Fresca':'💧 Agua Fresca'}[RA.t]||RA.t;
+ ph.textContent=RA.e;
+ hero.insertBefore(ph,hero.querySelector('.mclose'));
+ document.getElementById('mnutr').style.display='none';
+ var adM=document.getElementById('adModal');if(adM)adM.classList.add('hide');
+ document.getElementById('favBtn').textContent='❤️ Guardar en Favoritos';
+ updateModal();
+ document.getElementById('moverlay').classList.add('on');
+ document.body.style.overflow='hidden';
+}
+
+// ══════════════════════════════════════
+// PERFIL
+// ══════════════════════════════════════
+function renderPerfil(){
+ if(!CU)return;
+ document.getElementById('pfav').textContent=CU.nombre.charAt(0).toUpperCase();
+ document.getElementById('pfn').textContent=CU.nombre;
+ document.getElementById('pfe').textContent=CU.email;
+ document.getElementById('sv').textContent=CU.vistas||0;
+ document.getElementById('sf').textContent=(CU.favs||[]).length;
+ document.getElementById('sm2').textContent=(CU.menus||[]).length;
+ var pro=isPro();
+ var pb=document.getElementById('ppbadge');
+ pb.textContent=pro?'PRO ⭐':'FREE';pb.className='pbadge '+(pro?'ppro':'pfree');
+ document.getElementById('upgBtn').style.display=pro?'none':'inline-block';
+ document.getElementById('pfl').innerHTML=[
+  ['100+ recetas mexicanas auténticas',true],
+  ['Calculadora de presupuesto personal',true],
+  ['Calculadora para negocios',true],
+  ['Lista de compras por receta',true],
+  ['Menú semanal: Desayuno + Sopa + Plato Fuerte',true],
+  ['Lista del súper automática',true],
+  ['Anuncios en todas las pantallas',!pro,'ad'],
+  ['Sin anuncios — experiencia limpia',pro],
+  ['Reciclador de ingredientes con IA',pro],
+  ['Guardar menús semanales ilimitados',pro],
+  ['20 Salsas Mexicanas exclusivas',pro],
+  ['10 Aguas Frescas exclusivas',pro],
+ ].map(function(f){return '<li class="'+(f[1]?f[2]==='ad'?'ad':'':'no')+'">'+f[0]+'</li>';}).join('');
+}
+
+function cambiarPass(){
+ if(!CU||CU.email==='demo@sabores.mx'){showToast('No disponible en modo Demo');return;}
+ var actual=document.getElementById('passActual').value;
+ var nueva=document.getElementById('passNueva').value;
+ var confirma=document.getElementById('passConfirm').value;
+ if(!actual||!nueva||!confirma){showToast('Completa todos los campos');return;}
+ if(nueva!==confirma){showToast('Las contraseñas nuevas no coinciden');return;}
+ if(nueva.length<6){showToast('Mínimo 6 caracteres');return;}
+ var u=getUsers();
+ if(CU.email!==ADMIN_EMAIL&&(!u[CU.email]||u[CU.email].p!==btoa(actual))){showToast('Contraseña actual incorrecta');return;}
+ if(CU.email===ADMIN_EMAIL&&btoa(actual)!==ADMIN_PASS){showToast('Contraseña actual incorrecta');return;}
+ if(u[CU.email]){u[CU.email].p=btoa(nueva);saveUsers(u);}
+ document.getElementById('passActual').value='';
+ document.getElementById('passNueva').value='';
+ document.getElementById('passConfirm').value='';
+ showToast('✅ Contraseña actualizada correctamente');
+}
+
+// ══════════════════════════════════════
+// MERCADOPAGO
+// ══════════════════════════════════════
+function abrirMP(){
+ document.getElementById('mpForm').style.display='block';
+ document.getElementById('mpSuccess').classList.remove('on');
+ document.getElementById('mpOv').classList.add('on');
+ document.body.style.overflow='hidden';
+ if(CU&&document.getElementById('mpEmail'))document.getElementById('mpEmail').value=CU.email;
+}
+function cerrarMP(){document.getElementById('mpOv').classList.remove('on');document.body.style.overflow='';}
+function fmtCard(el){var v=el.value.replace(/\D/g,'').slice(0,16);el.value=v.replace(/(.{4})/g,'$1 ').trim();}
+function fmtExp(el){var v=el.value.replace(/\D/g,'').slice(0,4);if(v.length>=2)v=v.slice(0,2)+'/'+v.slice(2);el.value=v;}
+
+async function procesarPago(){
+ var nombre=document.getElementById('mpNombre').value.trim();
+ var email=document.getElementById('mpEmail').value.trim();
+ var card=document.getElementById('mpCard').value.trim();
+ var cvv=document.getElementById('mpCVV').value.trim();
+ if(!nombre||!email||card.length<19||!cvv){showToast('⚠️ Completa todos los campos');return;}
+ var btn=document.getElementById('mpBtnTxt');
+ btn.innerHTML='<div class="spinner"></div> Procesando...';
+ await new Promise(function(r){setTimeout(r,2000);});
+ activarPro();
+ btn.innerHTML='🔒 Suscribirme — $79/mes';
+}
+function activarPro(){
+ if(!CU)return;
+ CU.plan='pro';saveUD(CU.email,CU);
+ updateHeader();renderAds();renderPerfil();renderMenuPro();
+ document.getElementById('mpForm').style.display='none';
+ document.getElementById('mpSuccess').classList.add('on');
+}
+
+// ══════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════
+function showToast(msg){
+ var ex=document.querySelector('.toast');if(ex)ex.remove();
+ var t=document.createElement('div');t.className='toast';t.textContent=msg;
+ document.body.appendChild(t);setTimeout(function(){t.remove();},3000);
+}
+
+// ── INIT ──────────────────────────────
+document.getElementById('cpres').addEventListener('keydown',function(e){if(e.key==='Enter')calcular();});
+document.getElementById('rinp').addEventListener('keydown',function(e){if(e.key==='Enter')addRez();});
+renderNegIngs();
+
+// ── HIDE INSTALL BANNER IF ALREADY INSTALLED ──
+(function(){
+ var isStandalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone;
+ if(isStandalone){
+  var b=document.getElementById('installBanner');
+  if(b)b.style.display='none';
+ }
+})();
+
+// ── RESTORE SESSION ──────────────────
+(function(){
+ try{
+  var savedEmail=localStorage.getItem('sdm_session_email');
+  if(savedEmail){
+   var d=getUD(savedEmail);
+   if(d){
+    // Admin special case
+    if(savedEmail===ADMIN_EMAIL){d.plan='pro';}
+    loginUser(d);
+    return;
+   }
+  }
+ }catch(e){}
+})();
+
+// ── PWA INSTALL ───────────────────────
+var deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',function(e){
+ e.preventDefault();
+ deferredPrompt=e;
+ var btn=document.getElementById('installBtn');
+ if(btn)btn.classList.add('on');
+});
+window.addEventListener('appinstalled',function(){
+ deferredPrompt=null;
+ var btn=document.getElementById('installBtn');
+ if(btn)btn.classList.remove('on');
+ showToast('✅ ¡App instalada! Búscala en tu pantalla de inicio');
+});
+function instalarApp(){
+ if(deferredPrompt){
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(function(r){
+   if(r.outcome==='accepted'){
+    showToast('✅ ¡Instalando! Busca el ícono en tu pantalla de inicio');
+    var b=document.getElementById('installBanner');
+    if(b)b.style.display='none';
+   }
+   deferredPrompt=null;
+  });
+ } else {
+  // Show step by step modal
+  mostrarGuiaInstalacion();
+ }
+}
+
+function mostrarGuiaInstalacion(){
+ var existe=document.getElementById('installGuia');
+ if(existe)existe.remove();
+ var div=document.createElement('div');
+ div.id='installGuia';
+ div.style.cssText='position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.75);display:flex;align-items:flex-end;justify-content:center;padding:16px;';
+ div.innerHTML='<div style="background:#fff;border-radius:22px;padding:24px;max-width:400px;width:100%;animation:up .3s ease;">'+
+  '<h3 style="font-family:Fraunces,serif;font-size:1.2rem;color:#C0392B;margin-bottom:16px;">📲 Instalar Sabores de México</h3>'+
+  '<div style="background:#E3F2FD;border-radius:12px;padding:14px;margin-bottom:12px;">'+
+  '<div style="font-weight:900;color:#1565C0;margin-bottom:8px;">En Chrome (recomendado):</div>'+
+  '<div style="font-size:.85rem;color:#333;line-height:1.8;">'+
+  '1️⃣ Toca los <strong>3 puntos ⋮</strong> arriba a la derecha<br>'+
+  '2️⃣ Busca <strong>"Instalar aplicación"</strong> o <strong>"Agregar a pantalla de inicio"</strong><br>'+
+  '3️⃣ Toca <strong>Instalar</strong> y listo ✅'+
+  '</div></div>'+
+  '<div style="background:#F3E5F5;border-radius:12px;padding:14px;margin-bottom:16px;">'+
+  '<div style="font-weight:900;color:#6A1B9A;margin-bottom:8px;">En Samsung Internet:</div>'+
+  '<div style="font-size:.85rem;color:#333;line-height:1.8;">'+
+  '1️⃣ Toca el ícono de <strong>menú ≡</strong><br>'+
+  '2️⃣ Toca <strong>"Agregar página a"</strong><br>'+
+  '3️⃣ Selecciona <strong>"Pantalla de inicio"</strong> ✅'+
+  '</div></div>'+
+  '<button onclick="document.getElementById(\'installGuia\').remove()" style="width:100%;padding:13px;background:#C0392B;color:#fff;border:none;border-radius:10px;font-family:DM Sans,sans-serif;font-weight:900;font-size:.92rem;cursor:pointer;">Entendido</button>'+
+  '</div>';
+ document.body.appendChild(div);
+ div.addEventListener('click',function(e){if(e.target===div)div.remove();});
+}
+</script>
+</body>
+</html>
