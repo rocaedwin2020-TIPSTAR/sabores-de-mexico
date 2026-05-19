@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sabores de México</title>
-<meta name="description" content="150+ recetas mexicanas verificadas. Cocina rico, gasta menos, no desperdicies.">
+<meta name="description" content="140+ recetas mexicanas verificadas. Cocina rico, gasta menos, no desperdicies.">
 <meta name="theme-color" content="#C0392B">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -471,6 +471,26 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--c);overfl
 footer{text-align:center;padding:18px;font-size:.73rem;color:var(--cm);border-top:1px solid rgba(192,57,43,.1);background:var(--ccl);}
 @media(max-width:600px){.hdr-brand{font-size:1.05rem;}.uname{display:none;}}
 </style>
+
+<script>
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('/sw.js').then(function(reg){
+    reg.addEventListener('updatefound', function(){
+      var newWorker = reg.installing;
+      newWorker.addEventListener('statechange', function(){
+        if(newWorker.state === 'installed' && navigator.serviceWorker.controller){
+          // New version available - force update
+          newWorker.postMessage({action: 'skipWaiting'});
+        }
+      });
+    });
+  });
+  // Reload when new service worker takes over
+  navigator.serviceWorker.addEventListener('controllerchange', function(){
+    window.location.reload();
+  });
+}
+</script>
 </head>
 <body>
 
