@@ -523,13 +523,14 @@ footer{text-align:center;padding:18px;font-size:.73rem;color:var(--cm);border-to
  <button class="tb" onclick="goTab('rez')">♻️ Rezagados</button>
  <button class="tb pro-tab" onclick="goTab('salsas')">🌶️ Salsas ⭐</button>
  <button class="tb pro-tab" onclick="goTab('aguas')">💧 Aguas ⭐</button>
+  <button class="fb" onclick="filtrarJugos(this)">🥤 Jugos</button>
  <button class="tb" onclick="goTab('perfil')">👤 Perfil</button>
 </nav>
 
 <!-- RECETAS -->
 <div id="sec-recetas" class="sec on">
  <h2 class="stit">Cocina Mexicana Auténtica</h2>
- <p class="ssub">90+ recetas reales verificadas · Cantidades exactas · Paso a paso</p>
+ <p class="ssub">150+ recetas reales verificadas · Cantidades exactas · Paso a paso</p>
  <div id="installBanner" style="margin-bottom:8px;" style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
   <button onclick="instalarApp()" style="display:inline-flex;align-items:center;gap:6px;background:var(--azcl);border:1.5px solid rgba(21,101,192,.25);border-radius:50px;padding:6px 14px;font-family:DM Sans,sans-serif;font-size:.75rem;font-weight:800;color:#1565C0;cursor:pointer;transition:all .2s;">
    <span>📲</span> Instalar app
@@ -1910,6 +1911,98 @@ var AGUAS=[
   pasos:[["10 min","Hidrata la chía en 1/2 taza de agua 10 min hasta que forme gel. Exprime los limones."],["3 min","Disuelve el azúcar en un poco de agua caliente. Mezcla todo con el agua fría."],["inmediato","Agrega la chía hidratada y la hierbabuena. Revuelve bien antes de servir sobre hielo."]]},
 ];
 
+var JUGOS=[
+ {id:"J01",n:"Jugo Verde",e:"🥦",
+  desc:"Apio, pepino, espinaca, nopal y limón. El clásico detox mexicano de los mercados.",
+  img:"",
+  ing:[["Apio","tallos",3,1.0],["Pepino","pzas",1,10.0],["Espinaca fresca","g",50,0.040],["Nopal tierno","pza",1,0.025],["Limón","pzas",2,1.9],["Piña","rebanadas",2,3.0],["Agua","ml",200,0.0],["Jengibre fresco (opcional)","cm",2,0.5]],
+  pasos:[["5 min","Lava bien todos los ingredientes. Trocea el apio, pepino con cáscara, espinaca y nopal."],["3 min","Licúa todo con el agua y el jugo de limón hasta completamente terso."],["inmediato","Cuela con colador fino. Sirve de inmediato sobre hielo. No guardes más de 2 horas."]]},
+
+ {id:"J02",n:"Jugo de Naranja Natural",e:"🍊",
+  desc:"Naranjas recién exprimidas. Simple, fresco y lleno de vitamina C. El clásico del desayuno.",
+  img:"",
+  ing:[["Naranja jugosa grande","pzas",6,5.0],["Hielo","al gusto",0,0.0]],
+  pasos:[["5 min","Parte las naranjas a la mitad. Exprime con extractor manual o eléctrico."],["inmediato","Sirve inmediatamente sobre hielo. No añadas agua ni azúcar — la naranja madura ya es dulce."]]},
+
+ {id:"J03",n:"Jugo de Zanahoria con Naranja",e:"🥕",
+  desc:"Zanahoria y naranja licuadas. Dulce, nutritivo y lleno de betacaroteno. Ideal para el desayuno.",
+  img:"",
+  ing:[["Zanahoria mediana","pzas",4,2.28],["Naranja","pzas",3,5.0],["Jengibre fresco","cm",2,0.5],["Agua","ml",150,0.0],["Hielo","al gusto",0,0.0]],
+  pasos:[["5 min","Pela las zanahorias y córtalas en trozos. Exprime las naranjas."],["3 min","Licúa la zanahoria con el jugo de naranja, jengibre y agua hasta terso."],["inmediato","Cuela y sirve sobre hielo."]]},
+
+ {id:"J04",n:"Jugo de Betabel con Manzana",e:"🟣",
+  desc:"Betabel, manzana y zanahoria. El jugo más colorido y nutritivo del mercado mexicano.",
+  img:"",
+  ing:[["Betabel mediano crudo","pzas",2,4.0],["Manzana verde","pzas",2,8.0],["Zanahoria","pzas",2,2.28],["Limón","pzas",1,1.9],["Agua","ml",200,0.0],["Jengibre","cm",2,0.5]],
+  pasos:[["5 min","Pela el betabel y córtalo en cubos. Descorazona la manzana. Pela la zanahoria."],["3 min","Licúa todo con agua y jugo de limón hasta completamente terso."],["inmediato","Cuela bien — el betabel tiñe todo. Sirve sobre hielo. Mancha ropa y manos."]]},
+
+ {id:"J05",n:"Jugo de Zanahoria con Jengibre",e:"🥕",
+  desc:"Zanahoria y jengibre fresco. Energizante, antiinflamatorio y perfecto para el invierno.",
+  img:"",
+  ing:[["Zanahoria mediana","pzas",6,2.28],["Jengibre fresco","cm",4,0.5],["Limón","pzas",2,1.9],["Agua","ml",200,0.0],["Miel","cdas",1,0.050]],
+  pasos:[["5 min","Pela las zanahorias y el jengibre. Córtalos en trozos."],["3 min","Licúa con agua, jugo de limón y miel hasta terso."],["inmediato","Cuela y sirve sobre hielo. Ajusta el jengibre al gusto — pica bastante."]]},
+
+ {id:"J06",n:"Jugo de Naranja con Betabel y Zanahoria",e:"🍊",
+  desc:"Los tres juntos — naranja, betabel y zanahoria. El jugo tricolor más popular de los mercados.",
+  img:"",
+  ing:[["Naranja","pzas",4,5.0],["Betabel mediano","pzas",1,4.0],["Zanahoria","pzas",3,2.28],["Limón","pzas",1,1.9],["Jengibre","cm",2,0.5]],
+  pasos:[["5 min","Exprime las naranjas. Pela y trocea el betabel y la zanahoria."],["3 min","Licúa el betabel y zanahoria con el jugo de naranja, limón y jengibre."],["inmediato","Cuela y sirve sobre hielo. Color rojo intenso."]]},
+
+ {id:"J07",n:"Jugo de Tomate Casero",e:"🍅",
+  desc:"Jitomate, apio y limón licuados. La versión casera del Clamato — sin conservadores.",
+  img:"",
+  ing:[["Jitomate bola maduro","pzas",4,7.5],["Apio","tallos",2,1.0],["Limón","pzas",2,1.9],["Sal","pizca",1,0.01],["Salsa Worcestershire","cdas",1,0.8],["Chile serrano","pzas",1,0.40],["Agua","ml",100,0.0]],
+  pasos:[["5 min","Licúa los jitomates con el apio, chile, jugo de limón, agua y salsa inglesa."],["2 min","Cuela hasta obtener jugo terso. Sazona con sal."],["inmediato","Sirve sobre hielo con una pizca de chile en polvo en el borde del vaso."]]},
+
+ {id:"J08",n:"Licuado de Plátano con Leche",e:"🍌",
+  desc:"Plátano tabasco con leche y miel. El licuado más clásico y nutritivo del desayuno mexicano.",
+  img:"",
+  ing:[["Plátano tabasco maduro","pzas",3,3.0],["Leche entera","ml",500,0.027],["Miel de abeja","cdas",2,0.050],["Canela molida","pizca",1,0.50],["Hielo","vasos",1,0.0]],
+  pasos:[["3 min","Pela los plátanos y trocea. Licúa con la leche, miel y canela hasta completamente terso."],["inmediato","Sirve sobre hielo. Se puede sustituir la miel por azúcar o piloncillo."]]},
+
+ {id:"J09",n:"Licuado de Fresa con Leche",e:"🍓",
+  desc:"Fresas frescas con leche y azúcar. Dulce, cremoso y el favorito de los niños.",
+  img:"",
+  ing:[["Fresa fresca","g",300,0.060],["Leche entera","ml",500,0.027],["Azúcar","g",40,0.020],["Hielo","vasos",1,0.0]],
+  pasos:[["3 min","Lava y descolona las fresas. Licúa con leche, azúcar y hielo hasta terso."],["inmediato","Sirve inmediatamente. Puedes agregar una bola de helado de vainilla para hacerlo más especial."]]},
+
+ {id:"J10",n:"Licuado de Mamey",e:"🟠",
+  desc:"Mamey con leche y un toque de canela. El licuado más mexicano y exótico que existe.",
+  img:"",
+  ing:[["Mamey maduro","pzas",1,25.0],["Leche entera","ml",400,0.027],["Azúcar","g",30,0.020],["Canela molida","pizca",1,0.50],["Hielo","vasos",1,0.0]],
+  pasos:[["3 min","Parte el mamey, quita la cáscara y el hueso. Trocea la pulpa."],["3 min","Licúa con leche, azúcar, canela y hielo hasta completamente terso."],["inmediato","Sirve inmediatamente. El mamey oxida rápido — tómalo al momento."]]},
+
+ {id:"J11",n:"Jugo de Guayaba con Naranja",e:"🍐",
+  desc:"Guayaba y naranja licuadas. Tropical, vitamínico y con un sabor único.",
+  img:"",
+  ing:[["Guayaba madura","pzas",6,2.0],["Naranja","pzas",3,5.0],["Limón","pzas",1,1.9],["Agua","ml",150,0.0],["Azúcar","g",30,0.020]],
+  pasos:[["5 min","Lava las guayabas y córtalas en cuartos. Exprime las naranjas."],["3 min","Licúa las guayabas con el jugo de naranja, limón, agua y azúcar."],["2 min","Cuela bien para quitar las semillas. Sirve sobre hielo."]]},
+
+ {id:"J12",n:"Licuado de Avena con Plátano",e:"🌾",
+  desc:"Avena, plátano y leche. El desayuno completo en vaso — energético y muy nutritivo.",
+  img:"",
+  ing:[["Avena en hojuelas","g",60,0.025],["Plátano tabasco maduro","pzas",2,3.0],["Leche entera","ml",400,0.027],["Miel","cdas",2,0.050],["Canela molida","cdita",0.5,0.50],["Hielo","vasos",1,0.0]],
+  pasos:[["5 min","Remoja la avena en la leche 5 min para suavizarla."],["3 min","Licúa todo con el plátano, miel, canela y hielo hasta completamente terso."],["inmediato","Sirve inmediatamente. Es un desayuno completo en vaso."]]},
+
+ {id:"J13",n:"Agua de Limón con Chía y Menta",e:"🌿",
+  desc:"Limonada con chía y menta fresca. Refrescante, digestiva y muy de moda en México.",
+  img:"",
+  ing:[["Limón","pzas",6,1.9],["Semillas de chía","g",25,0.090],["Menta o hierbabuena fresca","ramitas",8,1.0],["Agua","litros",2,0.0],["Azúcar o miel","g",80,0.020],["Hielo","al gusto",0,0.0]],
+  pasos:[["10 min","Hidrata la chía en media taza de agua 10 min hasta que forme gel."],["3 min","Exprime los limones. Disuelve el azúcar en agua caliente."],["inmediato","Mezcla todo con agua fría. Agrega la chía hidratada y hojas de menta. Sirve sobre hielo."]]},
+
+ {id:"J14",n:"Jugo Detox de Nopal y Piña",e:"🌵",
+  desc:"Nopal, piña, pepino y limón. El jugo detox favorito de los mexicanos para bajar de peso.",
+  img:"",
+  ing:[["Nopal tierno","pzas",2,0.025],["Piña en trozos","g",200,3.0],["Pepino","pzas",1,10.0],["Limón","pzas",2,1.9],["Agua","ml",200,0.0],["Jengibre","cm",2,0.5]],
+  pasos:[["5 min","Lava el nopal y córtalo en trozos quitando las espinas. Pela el pepino y trocea la piña."],["3 min","Licúa todo con agua y jugo de limón hasta completamente terso."],["inmediato","Cuela y sirve sobre hielo. Tómalo en ayunas para mejores resultados."]]},
+
+ {id:"J15",n:"Licuado de Nuez con Leche y Miel",e:"🥜",
+  desc:"Nuez de Castilla con leche, miel y canela. Rico, nutritivo y muy energético.",
+  img:"",
+  ing:[["Nuez de Castilla","g",80,0.120],["Leche entera","ml",500,0.027],["Miel de abeja","cdas",3,0.050],["Canela molida","cdita",0.5,0.50],["Plátano maduro","pzas",1,3.0],["Hielo","vasos",1,0.0]],
+  pasos:[["3 min","Remoja las nueces 10 min en agua caliente para suavizarlas y quitarles el amargor."],["3 min","Licúa con leche, miel, canela, plátano y hielo hasta completamente terso."],["inmediato","Sirve inmediatamente. Muy energético para el desayuno."]]},
+];
+
 // ══════════════════════════════════════
 // ESTADO GLOBAL
 // ══════════════════════════════════════
@@ -2052,7 +2145,7 @@ function renderRecetas(filtro){
  if(filtro!==undefined)FILTRO_ACTIVO=filtro;
  var grid=document.getElementById('rgrid');
  var lista=RECETAS.filter(function(r){
-  var matchFiltro=FILTRO_ACTIVO==='todos'||r.t===FILTRO_ACTIVO||r.d===FILTRO_ACTIVO;
+  var matchFiltro=FILTRO_ACTIVO==='todos'||r.t===FILTRO_ACTIVO||r.d===FILTRO_ACTIVO||FILTRO_ACTIVO==='Jugo';
   var matchBusqueda=!BUSQUEDA||
    r.n.toLowerCase().includes(BUSQUEDA)||
    r.desc.toLowerCase().includes(BUSQUEDA)||
@@ -2087,6 +2180,14 @@ function renderRecetas(filtro){
 var BUSQUEDA='';
 var FILTRO_ACTIVO='todos';
 
+
+function filtrarJugos(el){
+ document.querySelectorAll('.fb').forEach(b=>b.classList.remove('act'));
+ el.classList.add('act');
+ FILTRO_ACTIVO='jugos';
+ BUSQUEDA='';
+ renderRecetas();
+}
 function filtrar(f,btn){
  FILTRO_ACTIVO=f;
  BUSQUEDA='';
